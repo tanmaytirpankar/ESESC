@@ -1,0 +1,1 @@
+cmd='/home/ESESC/esesc/gold/configure;/home/ESESC/esesc/gold;/home/ESESC/esesc/build/gold'

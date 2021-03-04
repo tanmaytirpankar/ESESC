@@ -1,0 +1,26 @@
+project(mcpat)
+
+INCLUDE("${esesc_SOURCE_DIR}/CMake.common")
+
+INCLUDE_DIRECTORIES(${suc_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${peq_SOURCE_DIR})
+
+IF(NOT DEFINED NTHREADS)
+   SET(NTHREADS 1)
+ENDIF(NOT DEFINED NTHREADS)
+
+FILE(GLOB mcpat_SOURCE *.cpp)
+FILE(GLOB mcpat_HEADER *.h)
+
+SOURCE_GROUP("Source Files" FILES ${mcpat_SOURCE})
+SOURCE_GROUP("Header Files" FILES ${mcpat_HEADER})
+
+FILE(GLOB exec_SOURCE1 main.cpp)
+
+LIST(REMOVE_ITEM mcpat_SOURCE main.cpp)
+
+ADD_LIBRARY(mcpat ${mcpat_SOURCE} ${mcpat_HEADER})
+
+IF(NEW_BOOST)
+  TARGET_LINK_LIBRARIES(mcpat -lboost_serialization)
+ENDIF(NEW_BOOST)

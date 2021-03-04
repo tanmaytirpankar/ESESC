@@ -1,0 +1,1 @@
+cmd='/home/ESESC/esesc/misc/bfd/configure;--prefix=/home/ESESC/esesc/build/bfd;CFLAGS= -g -I/home/ESESC/esesc/misc/include;--enable-64-bit-bfd'

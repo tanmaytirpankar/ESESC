@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/bfd"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/bfd.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/bfd-complete.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-install.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-mkdir.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-download.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-update.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-patch.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-configure.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/bfd/stampdir/bfd-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bfd"
+		],
+		"name" : "bfd"
+	}
+}

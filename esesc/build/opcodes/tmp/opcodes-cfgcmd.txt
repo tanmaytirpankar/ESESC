@@ -1,0 +1,1 @@
+cmd='/home/ESESC/esesc/misc/opcodes/configure;--prefix=/home/ESESC/esesc/build/opcodes;CFLAGS= -I/home/ESESC/esesc/misc/include'

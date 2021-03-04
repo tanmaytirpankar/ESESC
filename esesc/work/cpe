@@ -1,0 +1,137 @@
+#!/bin/bash
+export CPECSV="cpe_simu.csv"
+export mpDIr="mcpat"
+echo "" > $CPECSV
+export NUMCORE="4"
+printf "Benchmark\tCore Dynamic\tleakage\n" >> $CPECSV
+for REPLIST in `ls *.rep | awk '{split($0, a, ".rep"); print a[1]}'`; do
+    export CPEFILE="mcpat.txt"
+
+	while IFS='' read -r REPNAME || [[ -n "$REPNAME" ]]; do
+	    printf "mcpat\n" > $CPEFILE
+		export REPWORD=`echo $REPNAME | awk '{split($0, a, ":"); split(a[1], b, ",");  print b[1] "." b[2] "." a[2]}'`
+		#1
+		echo $REPWORD >> $CPEFILE
+		
+		#2
+		export REPDATA=`grep "OS:wallClock" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		echo $REPDATA >> $CPEFILE
+		echo $REPDATA
+		#3
+		REPDATA=`grep "P(0):nCommitted" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		echo $REPDATA >> $CPEFILE
+		
+		#4
+		export IAALU=`grep "P(0)_ExeEngine_iAALU" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export IMULT=`grep "P(0)_ExeEngine_iCALU_MULT" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export IDIV=`grep "P(0)_ExeEngine_iCALU_DIV" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($IAALU + $IMULT + $IDIV)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#5
+		export FPAALU=`grep "P(0)_ExeEngine_iCALU_FPALU" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export FPMULT=`grep "P(0)_ExeEngine_iCALU_FPMULT" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export FPDIV=`grep "P(0)_ExeEngine_iCALU_FPDIV" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($FPAALU + $FPMULT + $FPDIV)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#6
+		export BP1=`grep "P(0)_BPred:nBranches=" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export BP2=`grep "P(0)_BPred:nBranches2" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($BP1)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#7
+		export BP1MISS=`grep "P(0)_BPred2_imli:nMiss" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		export BP2MISS=`grep "P(0)_BPred2_2bit:nMiss" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($BP1MISS)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#8
+		REPDATA=`grep "P(0)_ExeEngine_iLALU_LD" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#9
+		REPDATA=`grep "P(0)_ExeEngine_iSALU_ST" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#10
+		export REPDATA=`grep "IL1(0):readHit" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#11
+		export REPDATA=`grep "IL1(0):readMiss=" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#12
+		export REPDATA=`grep "DL1(0):readHit" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#13
+		export REPDATA=`grep "DL1(0):readMiss=" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#14
+		export REPDATA=`grep "DL1(0):writeHit" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		#15
+		export REPDATA=`grep "DL1(0):writeMiss=" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#16
+		export REPDATA=`grep "L2(0):readHit" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		#17
+		export REPDATA=`grep "L2(0):readMiss=" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+		REPDATA=$(echo "($REPDATA)*$NUMCORE" | bc -l)
+		echo $REPDATA >> $CPEFILE
+		
+		declare -a param
+		readarray param < $CPEFILE
+		cat $mpDIr/Niagara-like-TEMP.xml > $mpDIr/tmp.xml
+		export i=2
+		while (( 18 > i )); do
+			export source="param_$i"
+			export dest=`echo ${param[$i]} | awk '{split($0, a, "."); print a[1]}'`
+			sed -i "s/${source}/${dest}/g" $mpDIr/tmp.xml 
+			((i++))
+		done
+		cd $mpDIr
+		./mcpat -infile tmp.xml -print_level 5 > `echo ${param[1]}`_`echo ${param[0]}`.log
+		cd ..
+		export infile=$mpDIr/`echo ${param[1]}`_`echo ${param[0]}`.log
+
+		export sub1=`sed -n '97p' < $infile | cut -c '32-40'`
+		export gal1=`sed -n '98p' < $infile | cut -c '24-33'`
+		
+		export sub2=`sed -n '125p' < $infile | cut -c '32-40'`
+		export gal2=`sed -n '126p' < $infile | cut -c '24-33'`
+		
+		export sub3=`sed -n '174p' < $infile | cut -c '32-40'`
+		export gal3=`sed -n '175p' < $infile | cut -c '24-33'`
+		
+		export sub4=`sed -n '202p' < $infile | cut -c '32-40'`
+		export gal4=`sed -n '203p' < $infile | cut -c '24-33'`
+		
+		export sub5=`sed -n '223p' < $infile | cut -c '32-40'`
+		export gal5=`sed -n '224p' < $infile | cut -c '24-33'`
+		
+		export sub=$(echo "($sub1 + $sub2 + $sub3 + $sub4 + $sub5)" | bc -l)
+		export gal=$(echo "($gal1 + $gal2 + $gal3 + $gal4 + $gal5)" | bc -l)
+		export subgal=$(echo "($sub + $gal)" | bc -l)
+		export rdy=`sed -n '92p' < $infile | cut -c '25-33'`
+		printf "$REPWORD\t$rdy\t$subgal\n" >> $CPECSV
+		
+	done < "$REPLIST.rep"	
+	
+done

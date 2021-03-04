@@ -1,0 +1,1 @@
+/usr/bin/c++   -Ofast -mtune=native -DNDEBUG -fPIC   CMakeFiles/poolBench.dir/poolBench.cpp.o  -o poolBench -rdynamic libsuc.a -lpthread 

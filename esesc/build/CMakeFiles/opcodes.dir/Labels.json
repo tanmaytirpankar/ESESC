@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/opcodes"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/opcodes.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/opcodes-complete.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-install.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-mkdir.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-download.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-update.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-patch.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-configure.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/opcodes/stampdir/opcodes-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"opcodes"
+		],
+		"name" : "opcodes"
+	}
+}

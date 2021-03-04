@@ -1,0 +1,13 @@
+# Target labels
+ gold
+# Source files and their labels
+/home/ESESC/esesc/build/CMakeFiles/gold
+/home/ESESC/esesc/build/CMakeFiles/gold.rule
+/home/ESESC/esesc/build/CMakeFiles/gold-complete.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-install.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-mkdir.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-download.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-update.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-patch.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-configure.rule
+/home/ESESC/esesc/build/gold/stampdir/gold-build.rule

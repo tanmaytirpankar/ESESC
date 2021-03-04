@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/floorplan"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/floorplan.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/floorplan-complete.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-install.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-mkdir.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-download.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-update.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-patch.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-configure.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/floorplan/stampdir/floorplan-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"floorplan"
+		],
+		"name" : "floorplan"
+	}
+}

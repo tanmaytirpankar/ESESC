@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd src
+make clean
+make
+cd ..
+rm -rf bin
+mkdir bin
+cp src/*.mips64 bin

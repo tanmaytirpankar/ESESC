@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/qemu"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/qemu.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/CMakeFiles/qemu-complete.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-install.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-mkdir.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-download.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-update.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-patch.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-configure.rule"
+		},
+		{
+			"file" : "/home/ESESC/esesc/build/qemu/stampdir/qemu-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"qemu"
+		],
+		"name" : "qemu"
+	}
+}

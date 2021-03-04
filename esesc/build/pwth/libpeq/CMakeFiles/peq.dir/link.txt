@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpeq.a  CMakeFiles/peq.dir/muParserTest.cpp.o CMakeFiles/peq.dir/muParser.cpp.o CMakeFiles/peq.dir/PeqParser.cpp.o CMakeFiles/peq.dir/CacheEq.cpp.o CMakeFiles/peq.dir/muParserInt.cpp.o CMakeFiles/peq.dir/muParserError.cpp.o CMakeFiles/peq.dir/muParserCallback.cpp.o CMakeFiles/peq.dir/muParserBytecode.cpp.o CMakeFiles/peq.dir/muParserDLL.cpp.o CMakeFiles/peq.dir/muParserTokenReader.cpp.o CMakeFiles/peq.dir/muParserBase.cpp.o CMakeFiles/peq.dir/SRAM.cpp.o
+/usr/bin/ranlib libpeq.a

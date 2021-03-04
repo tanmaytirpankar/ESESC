@@ -1,0 +1,751 @@
+#!/bin/bash
+
+
+## INPUT PARAMETERS
+################################################################################
+export ARG0="$0"
+export ARG1="$1"
+export ARG2="$2"
+export ARG3="$3"
+export ARG4="$4"
+
+
+## ENVIRONMENT PARAMETERS
+################################################################################
+export WDIR=$PWD
+export PDIR=$WDIR/..
+export CDIR=$WDIR/conf
+export SDIR=$PDIR/esesc
+export BDIR=$PDIR/build
+export KDIR=$PDIR/backup
+#export EXEC=$BDIR/main/esesc
+export EXEC=$WDIR/esesc
+export ADIR=$WDIR/../../apps
+
+
+## LIB LIST
+# sudo apt-get install -y cmake bison flex
+# sudo apt-get install -y zlib1g-dev libboost-dev libglib2.0-dev libncurses5-dev libpixman-1-dev
+# sudo apt-get install -y graphviz gnuplot
+
+## UPLOAD
+################################################################################
+if [ "$ARG1" = "upload" ]; then
+  if [ "$ARG2" != "" ]; then
+    scp $EXEC bojnordi@shell.cs.utah.edu:/home/bojnordi/work/$ARG2
+    exit 1
+  fi
+fi
+
+
+## COUNT
+################################################################################
+if [ "$ARG1" = "count" ]; then
+  for file in $WDIR/esesc_*
+  do
+    if [ "$ARG2" != "" ]; then
+      if [ "$ARG3" = "" ]; then
+        grep $ARG2 $file | awk '{split($0,a,"="); print a[1]"\t"a[2]}' | awk '(NR==1){Min=$2;Max=$2};(NR>=2){if(Min>$2)Min=$2;if(Max<$2)Max=$2} END {print '\"$file\"' " CNT: " NR " MIN: " Min " MAX: " Max}'
+      else
+        grep $ARG2 $file | grep $ARG3 | awk '{split($0,a,"="); print a[1]"\t"a[2]}' | awk '(NR==1){Min=$2;Max=$2};(NR>=2){if(Min>$2)Min=$2;if(Max<$2)Max=$2} END {print '\"$file\"' " CNT: " NR " MIN: " Min " MAX: " Max}'
+      fi
+    fi
+  done
+  exit 1
+fi
+
+
+## BACKUP
+################################################################################
+if [ "$ARG1" = "backup" ]; then
+  mkdir $KDIR
+  tar -cjvf $KDIR/`date +%Y%m%d`.tar.bz2  $SDIR $WDIR
+  exit 1
+fi
+
+
+## CLEAN
+################################################################################
+if [ "$ARG1" = "clean" ]; then
+  rm -rf *~ out *.out *.log *.app *.sh *.cl *.txt *.app *.mtx *.tmp *.csv memory-arch.* *.gp *.dat *.png *.bmp *.eps *.rep  $CDIR/*.cfg $WDIR/esesc_*
+  if [ "$ARG2" = "all" ]; then
+    rm -f $EXEC
+    for xyz in `find $PDIR -type d`; do
+      for abc in `ls $xyz/._*`; do
+        rm -rf $abc
+      done
+    done
+    mkdir $BDIR
+    cd $BDIR
+    make clean
+    rm -rf *
+  fi
+  exit 1
+fi
+
+
+## DOT
+################################################################################
+if [ "$ARG1" = "dot" ]; then
+  dot -Tpng memory-arch.dot > memory-arch.png
+  exit 1
+fi
+
+
+## BUILD
+################################################################################
+if [ "$ARG1" = "make" ]; then
+  cd $BDIR
+  #cmake -DCMAKE_BUILD_TYPE=Debug $SDIR
+  cmake $SDIR
+  make
+	mv $BDIR/main/esesc $WDIR
+  exit 1
+fi
+
+
+## COMPILATION
+################################################################################
+if [ "$ARG1" = "compile" ]; then
+  if [ "$ARG2" = "sortmerge" ] || [ "$ARG2" = "mergesort" ] || [ "$ARG2" = "test" ] || [ "$ARG2" = "sanity" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "original_clustering" ] || [ "$ARG2" = "TF_IDF_CPU" ] ||[ "$ARG2" = "ASA136" ] ||[ "$ARG2" = "phoenix" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "nmb" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "spec2006" ]; then
+    cd $ADIR/$ARG2
+    ./compile
+    exit 1
+  fi
+fi
+
+
+## SIMULATION
+################################################################################
+if [ "$ARG1" = "valgrind" ]; then
+    export EXEC="valgrind -v --leak-check=full --show-leak-kinds=all --track-origins=yes $EXEC"
+    export ARG1="exec"
+fi
+if [ "$ARG1" = "debug" ]; then
+    export EXEC="gdb --args $EXEC"
+    export ARG1="exec"
+fi
+if [ "$ARG1" = "exec" ]; then
+if [ "$ARG3" = "" ]; then
+  export NUMCORE="1"
+else
+  export NUMCORE="$ARG3"
+fi
+export LIVE="false"
+export SAMPLER="LDST" # "skipsim" "TBS" "SkipAll" "TASS" "TASSROI" "live" "nosampler" "LDST"
+export BATNAME=$ARG2,$NUMCORE
+export APPLIST="$BATNAME.app"
+export REPLIST="$BATNAME.rep"
+export counter=0
+export file_name="$BATNAME"
+echo -n "" > $APPLIST
+echo -n "" > $REPLIST
+
+
+## sort merge
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sm00" ]; then
+  echo "$ADIR/sortmerge/bin/sortmerge.mips64 8388608 0 0 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sm01" ]; then
+  echo "$ADIR/sortmerge/bin/sortmerge.mips64 8388608 0 1 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sm10" ]; then
+  echo "$ADIR/sortmerge/bin/sortmerge.mips64 8388608 1 0 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sm11" ]; then
+  echo "$ADIR/sortmerge/bin/sortmerge.mips64 8388608 1 1 $NUMCORE" >> $APPLIST
+fi
+
+
+## TEST
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "mergesort" ]; then
+  echo "$ADIR/mergesort/bin/mergesort.mips64 8388608 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "test" ]; then
+  echo "$ADIR/test/bin/test.mips64 0.3 32 1 $NUMCORE" >> $APPLIST
+  #echo "$WDIR/../esesc/bins/riscv64/smatrix.riscv64 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sanity" ]; then
+  echo "$ADIR/sanity/bin/test.mips64 1048576 $NUMCORE" >> $APPLIST
+  #echo "$ADIR/sanity/bin/test.mips64 $NUMCORE" >> $APPLIST
+fi
+
+
+## CRONO: A Benchmark Suite for Multithreaded Graph Algorithms
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "apsp" ]; then
+  #echo "$ADIR/crono/bin/apsp.mips64 $NUMCORE 16384 32" >> $APPLIST
+#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "bc" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/bc.mips64 $NUMCORE 3072 32" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "bfs" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/bfs.mips64 0 $NUMCORE 65536 32" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "community" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/community_lock.mips64 0 $NUMCORE 8 131072 64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "connected" ] || [ "$ARG2" = "xcache" ]; then
+    #echo "$ADIR/crono/bin/connected_components_lock.mips64 0 $NUMCORE 262144 64" >> $APPLIST
+    echo "$ADIR/crono/bin/connected_components_lock.mips64 0 $NUMCORE 32768 64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "dfs" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/dfs.mips64 0 $NUMCORE 262144 64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "pagerank" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/pagerank.mips64 0 $NUMCORE 262144 128" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "sssp" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/sssp.mips64 0 $NUMCORE 131072 32" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "triangle" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/crono/bin/triangle_counting_lock.mips64 0 $NUMCORE 262144 64" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "tsp" ]; then
+#  echo "$ADIR/crono/bin/tsp.mips64 $NUMCORE 20" >> $APPLIST
+#fi
+
+
+## CLUSTERING
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "gene_cluster_orig" ]; then
+  echo "$ADIR/original_clustering/bin/gene-cluster.mips64 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "gene_cluster_gpu" ]; then
+  echo "$ADIR/gpu_clustering/bin/gene-cluster_gpu.mips64 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "ASA136_gpu" ]; then
+  echo "$ADIR/ASA136_gpu/bin/asa136_gpu.mips64 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "ASA136_cpu" ]; then
+  echo "$ADIR/ASA136/bin/asa136.mips64 $NUMCORE" >> $APPLIST
+fi
+
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "TF_IDF_CPU" ]; then
+  echo "$ADIR/TF_IDF_CPU/bin/tf_idf_cpu.mips64 $NUMCORE" >> $APPLIST
+fi
+
+
+## PHOENIX
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "histogram" ]; then
+    #echo "$ADIR/phoenix/bin/histogram_pthread.mips64 $ADIR/phoenix/data/histogram/small.bmp $NUMCORE" >> $APPLIST
+    echo "$ADIR/phoenix/bin/histogram_pthread.mips64 $ADIR/phoenix/data/histogram/test.bmp $NUMCORE" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "kmeans" ]; then
+  #echo "$ADIR/phoenix/bin/kmeans_pthread.mips64 -d 3 -c 100 -p 2097152 -s 10000 -t $NUMCORE" >> $APPLIST
+#  echo "$ADIR/phoenix/bin/kmeans_pthread.mips64 -d 3 -c 4 -p 20952 -s 1000 -t $NUMCORE" >> $APPLIST
+#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "lreg" ]; then
+  echo "$ADIR/phoenix/bin/lreg_pthread.mips64 $ADIR/phoenix/data/lreg/key_file_100MB.txt $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "mmult" ]; then
+    #echo "$ADIR/phoenix/bin/mmult_pthread.mips64 3000 1 $ADIR/phoenix/data/mmult $NUMCORE" >> $APPLIST
+    echo "$ADIR/phoenix/bin/mmult_pthread.mips64 300 0 $ADIR/phoenix/data/mmult $NUMCORE" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "pca" ]; then
+#  echo "$ADIR/phoenix/bin/pca_pthread.mips64 -r 1000 -c 2000 -s 1000 -t $NUMCORE" >> $APPLIST
+#fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "rindex" ]; then
+#  echo "$ADIR/phoenix/bin/rindex_pthread.mips64 $ADIR/phoenix/data/rindex $NUMCORE" >> $APPLIST
+#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "smatch" ]; then
+  echo "$ADIR/phoenix/bin/smatch_pthread.mips64 $ADIR/phoenix/data/smatch/key_file_500MB.txt $NUMCORE" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "phoenix" ] || [ "$ARG2" = "wordcount" ]; then
+#  echo "$ADIR/phoenix/bin/wordcount_pthread.mips64 $ADIR/phoenix/data/wordcount/word_100MB.txt $NUMCORE" >> $APPLIST
+#fi
+
+
+## NAS Parallel Benchmarks
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "bt" ]; then
+#  echo "$ADIR/npb/bin/bt.mips64 $NUMCORE" >> $APPLIST
+#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "cg" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/npb/bin/cg.mips64 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "ep" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/npb/bin/ep.mips64 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "ft" ] || [ "$ARG2" = "xcache" ]; then
+  echo "$ADIR/npb/bin/ft.mips64 $NUMCORE" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "is" ]; then
+#  echo "$ADIR/npb/bin/is.mips64 $NUMCORE" >> $APPLIST
+#fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "lu" ]; then
+#  echo "$ADIR/npb/bin/lu.mips64 $NUMCORE" >> $APPLIST
+#fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "mg" ]; then
+#  echo "$ADIR/npb/bin/mg.mips64 $NUMCORE" >> $APPLIST
+#fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "sp" ]; then
+#  echo "$ADIR/npb/bin/sp.mips64 $NUMCORE" >> $APPLIST
+#fi
+
+
+## SPLASH-2 Benchmarks
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "barnes" ]; then
+  echo "$ADIR/splash2/bin/BARNES.mips64 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "fft" ]; then
+  echo "$ADIR/splash2/bin/FFT.mips64 -m20 -n8192 -l6 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "lu-c" ]; then
+  echo "$ADIR/splash2/bin/LU-C.mips64 -n1024 -b8 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "ocean-c" ]; then
+  echo "$ADIR/splash2/bin/OCEAN-C.mips64 -n514 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "radiosity" ]; then
+  echo "$ADIR/splash2/bin/RADIOSITY.mips64 -room -ae5000.0 -en0.050 -bf0.10 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "raytrace" ]; then
+  echo "$ADIR/splash2/bin/RAYTRACE.mips64 -m72 -p$NUMCORE $ADIR/splash2/data/raytrace/car.env" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "water-spatial" ]; then
+  echo "$ADIR/splash2/bin/WATER-SPATIAL.mips64 $ADIR/splash2/data/water-spatial/input.$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "cholesky" ]; then
+  echo "$ADIR/splash2/bin/CHOLESKY.mips64 -B64 -C65536 -p$NUMCORE $ADIR/splash2/data/cholesky/tk29.O" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "fmm" ] ; then
+  echo "$ADIR/splash2/bin/FMM.mips64 $ADIR/splash2/data/fmm/input.2048.$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] ||  [ "$ARG2" = "lu-n" ]; then
+  echo "$ADIR/splash2/bin/LU-N.mips64 -n 512 -b16 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] ||  [ "$ARG2" = "ocean-n" ]; then
+  echo "$ADIR/splash2/bin/OCEAN-N.mips64 -n258 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "radix" ]; then
+  echo "$ADIR/splash2/bin/RADIX.mips64 -n2097152 -r32 -p$NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "splash2" ] || [ "$ARG2" = "water-nsquared" ]; then
+  echo "$ADIR/splash2/bin/WATER-NSQUARED.mips64 $ADIR/splash2/data/water-nsquared/input.$NUMCORE" >> $APPLIST
+fi
+
+
+## NU-MineBench Benchmarks
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "nmb" ] || [ "$ARG2" = "apriori" ]; then
+  echo "$ADIR/nmb/bin/apriori.mips64  -i $ADIR/nmb/data/apriori/data.ntrans_1000.tlen_10.nitems_1.npats_2000.patlen_6 -f $ADIR/nmb/data/apriori/offset_file_1000_10_1_P4.txt -s 0.0075 -n $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "nmb" ] || [ "$ARG2" = "hop" ]; then
+  #echo "$ADIR/nmb/bin/hop.mips64  <num particles> $ADIR/nmb/data/hop/particles_0_64 <nsmooth> <bucket_size> <nHop> $NUMCORE" >> $APPLIST
+  echo "$ADIR/nmb/bin/hop.mips64  61440 $ADIR/nmb/data/hop/particles_0_64 64 16 -1 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "nmb" ] || [ "$ARG2" = "scalparc" ]; then
+  echo "$ADIR/nmb/bin/scalparc.mips64  $ADIR/nmb/data/scalparc/para_F26-A64-D250K/F26-A64-D250K.tab 250000 64 4 $NUMCORE" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "nmb" ] || [ "$ARG2" = "umine" ]; then
+#  echo "$ADIR/nmb/bin/umine.mips64 <transaction_file> <offset_file> <profit_file> <utility_threshold> $NUMCORE" >> $APPLIST
+#fi
+
+
+## PERFECT: Power Efficiency Revolution for Embedded Computing
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "2dc" ]; then
+  echo "$ADIR/perfect/bin/2d_convolution.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "bp" ]; then
+  echo "$ADIR/perfect/bin/bp.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "cd" ]; then
+  echo "$ADIR/perfect/bin/change-detection.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "debayer" ]; then
+  echo "$ADIR/perfect/bin/debayer.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "dwt" ]; then
+  echo "$ADIR/perfect/bin/dwt53.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "fft1d" ]; then
+  echo "$ADIR/perfect/bin/fft-1d.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "fft2d" ]; then
+  echo "$ADIR/perfect/bin/fft-2d.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "heq" ]; then
+  echo "$ADIR/perfect/bin/histogram_equalization.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "inprod" ]; then
+  echo "$ADIR/perfect/bin/inner-product.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "lucas" ]; then
+  echo "$ADIR/perfect/bin/lucas-kanade.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "outprod" ]; then
+  echo "$ADIR/perfect/bin/outer-product.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "pfa1" ]; then
+  echo "$ADIR/perfect/bin/pfa-interp1.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "pfa2" ]; then
+  echo "$ADIR/perfect/bin/pfa-interp2.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "sort" ]; then
+  echo "$ADIR/perfect/bin/sort.mips64" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "perfect" ] || [ "$ARG2" = "solve" ]; then
+  echo "$ADIR/perfect/bin/system-solve.mips64" >> $APPLIST
+fi
+
+## SPEC2006:
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "astar" ]; then
+  echo "$ADIR/spec2006/bin/astar.mips64 $ADIR/spec2006/data/473.astar/ref/input/rivers.cfg" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "bzip2" ]; then
+  echo "$ADIR/spec2006/bin/bzip2.mips64 $WDIR/data/input.source 280" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "h264ref" ]; then
+  echo "$ADIR/spec2006/bin/h264ref.mips64 -d $ADIR/spec2006/data/464.h264ref/all/input/foreman_test_encoder_baseline.cfg" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "hmmer" ]; then
+  echo "$ADIR/spec2006/bin/hmmer.mips64 $ADIR/spec2006/data/456.hmmer/ref/input/nph3.hmm $ADIR/spec2006/data/456.hmmer/ref/input/swiss41" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "lbm" ]; then
+  echo "$ADIR/spec2006/bin/lbm.mips64 3000 $ADIR/spec2006/data/470.lbm/ref/output/reference.dat 0 0 $ADIR/spec2006/data/470.lbm/ref/input/100_100_130_ldc.of" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "mcf" ]; then
+  echo "$ADIR/spec2006/bin/mcf.mips64 $ADIR/spec2006/data/429.mcf/ref/input/inp.in" >> $APPLIST
+fi
+#if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "milc" ]; then
+ # echo "$ADIR/spec2006/bin/milc.mips64" >> $APPLIST
+#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "namd" ]; then
+  echo "$ADIR/spec2006/bin/namd.mips64 --input $ADIR/spec2006/data/444.namd/all/input/namd.input --iterations 38 --output $ADIR/spec2006/data/444.namd/ref/input/namd.out" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "rand" ]; then
+  echo "$ADIR/spec2006/bin/rand.mips64 1255432124 234923" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "sjeng" ]; then
+  echo "$ADIR/spec2006/bin/sjeng.mips64 $ADIR/spec2006/data/458.sjeng/ref/input/ref.txt" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "spec2006" ] || [ "$ARG2" = "soplex" ]; then
+  echo "$ADIR/spec2006/bin/soplex.mips64 -s1 -e -m45000 $ADIR/spec2006/data/450.soplex/ref/input/pds-50.mps" >> $APPLIST
+fi
+
+echo "" > $file_name.sh
+## Execution
+while IFS='' read -r APPNAME || [[ -n "$APPNAME" ]]; do
+  export REPNAME=$BATNAME:$(echo $APPNAME | awk '{split($0, a, ".mips64"); split(a[1], b, "/bin/"); print b[2]}')
+  export SPECNAME=$(echo $APPNAME | awk '{split($0, a, ".mips64"); split(a[1], b, "/bin/"); print b[2]}')
+  export CONFILE=$CDIR/$REPNAME.cfg
+  #if [ "$SPECNAME" = "h246ref" ] || [ "$SPECNAME" = "mcf" ] || [ "$SPECNAME" = "lbm" ] || [ "$SPECNAME" = "bzip2" ]; then
+	#  	SAMPLER="fade"
+  #fi
+  echo $REPNAME >> $REPLIST
+  rm -f esesc_$REPNAME.*
+  cp $CDIR/esesc.conf $CONFILE
+
+  sed -i -e "s%param_live_group%1%g" $CONFILE
+  sed -i -e "s%param_live%$LIVE%g" $CONFILE
+  sed -i -e "s%param_nCores%$NUMCORE%g" $CONFILE
+  sed -i -e "s%param_coreType%fastCORE%g" $CONFILE
+  sed -i -e "s%param_benchName%$APPNAME%g" $CONFILE
+  sed -i -e "s%param_samplerSel%$SAMPLER%g" $CONFILE
+  sed -i -e "s%param_reportFile%$REPNAME%g" $CONFILE
+  #export n=$((counter%6))
+  #if [ $n -eq 0 ]; then
+  #  echo "wait" >> $file_name.sh
+  #fi
+  #counter=$((counter+1))
+
+  #echo "$EXEC -c $CONFILE &" >> $file_name.sh
+  echo "$EXEC -c $CONFILE" >> $file_name.sh
+  #SAMPLER="nosampler"
+done < "$APPLIST"
+
+sh ${file_name}.sh
+
+
+exit 1
+fi
+
+
+
+## REPORT
+################################################################################
+if [ "$ARG1" = "report" ]; then
+  if [ "$ARG2" = "clean" ]; then
+    rm -r *.csv
+    exit 1
+  fi
+  if [ "$ARG2" = "" ]; then
+    export ARG2="1"
+  fi
+  if [ "$ARG3" = "" ]; then
+    export ARG3="="
+  fi
+  if [ "$ARG4" = "" ]; then
+    export ARG4="OS:wallClock"
+  fi
+  export RESFILE="simu.csv"
+  printf "" > $RESFILE
+  for REPLIST in `ls *.rep | awk '{split($0, a, ".rep"); print a[1]}'`; do
+    # dump the results into a CSV file
+
+    while IFS='' read -r REPNAME || [[ -n "$REPNAME" ]]; do
+    export REPWORD=`echo $REPNAME | awk '{split($0, a, ":"); split(a[1], b, ",");  print b[1] "." b[2] "." a[2]}'`
+    export REPDATA=`grep $ARG4 esesc_$REPNAME.* | awk '{split($0, a, '\"$ARG3\"'); split(a[2], b, ":"); print b[1]}'`
+    printf "\n$REPWORD\t" >> $RESFILE
+    printf "$REPDATA\t\t\t\t\t" >> $RESFILE
+    export cores=`echo "$ARG2 - 1" | bc -l`
+     ###
+    for level in {0..5}; do
+
+		if [ $level -eq 0 ];
+		then
+			export cachelevel="IL1($core)"
+			export cachelevelname="IL1"
+		elif [ $level -eq 1 ];
+		then
+			export cachelevel="DL1($core)"
+			export cachelevelname="DL1"
+		elif [ $level -eq 2 ];
+		then
+			export cachelevel="L2($core)"
+			export cachelevelname="L2"
+		elif [ $level -eq 3 ];
+		then
+			export cachelevel="L3($core)"
+			export cachelevelname="L3"
+		elif [ $level -eq 4 ];
+		then
+			export cachelevel="DDRxBus($core):0"
+			export cachelevelname="DDRxBus"
+		elif [ $level -eq 5 ];
+		then
+			export cachelevel="DDRxBus($core):1"
+		fi
+
+		export coreTotalWireflipsValue=0
+		export coreTotalNumOpsValue=0
+		export totalOneCount=0
+		export coreTotalDynEnergyValue=0
+		export coreTotalTermEnergyValue=0
+		export DDRBackgroundEnergy=0
+		export DDRForegroundEnergy=0
+		export totalmisses=0
+
+		export committed=`grep "P(0):nCommitted" esesc_$REPNAME.* | awk '{split($0, a, "="); split(a[2], b, ":"); print b[1]}'`
+
+		if [ $level -eq 0 ]  || [ $level -eq 1 ] ||  [ $level -eq 23 ]; then
+		for core in `eval echo {0..$cores}`; do
+			#wirefilps
+			export REGEX="${cachelevelname}(${core}):wireflips"
+			export TOTALREGEX="${REGEX}:n"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			if [ "$totalvalue" -eq "$totalvalue" ] 2>/dev/null; then
+			coreTotalWireflipsValue=$(($coreTotalWireflipsValue + $totalvalue))
+			fi
+
+			#numOperations
+			export REGEX="${cachelevelname}(${core}):numOperations"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			if [ "$totalvalue" -eq "$totalvalue" ] 2>/dev/null; then
+		    coreTotalNumOpsValue=$(($coreTotalNumOpsValue + $totalvalue))
+		    fi
+
+		    #TotalDynEnergy
+			export REGEX="${cachelevelname}(${core}):TotalDynEnergy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+			if [ $totalvalue ] 2>/dev/null; then
+		    coreTotalDynEnergyValue=$(echo "$coreTotalDynEnergyValue + $totalvalue" | bc -l)
+		    fi
+
+		    #ReadMiss
+			export REGEX="${cachelevelname}(${core}):writeMiss="
+			export TOTALREGEX="${REGEX}"
+			export writemiss=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+
+			#ReadMiss
+			export REGEX="${cachelevelname}(${core}):readMiss="
+			export TOTALREGEX="${REGEX}"
+			export readmiss=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+
+			if [ $readmiss ] 2>/dev/null; then
+		    totalmisses=$(echo "$totalmisses + $readmiss + $writemiss" | bc -l)
+		    fi
+
+     	done
+
+     	printf "\t$coreTotalWireflipsValue" >> $RESFILE
+     	printf "\t$coreTotalNumOpsValue" >> $RESFILE
+     	printf "\t$coreTotalDynEnergyValue" >> $RESFILE
+     	export mpki=$(echo "($totalmisses)*1000/($committed)" | bc -l)
+     	printf "\t$mpki" >> $RESFILE
+
+     	elif [ $level -eq 2 ]; then
+			export REGEX="${cachelevelname}(0):wireflips"
+			export TOTALREGEX="${REGEX}:n"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			printf "\t$totalvalue" >> $RESFILE
+
+			export REGEX="${cachelevelname}(0):numOperations"
+			export TOTALREGEX="$REGEX"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			printf "\t$totalvalue" >> $RESFILE
+
+			#TotalDynEnergy
+			export REGEX="${cachelevelname}(0):TotalDynEnergy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+		    printf "\t$totalvalue" >> $RESFILE
+
+		    #ReadMiss
+			export REGEX="${cachelevelname}(0):writeMiss="
+			export TOTALREGEX="${REGEX}"
+			export writemiss=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+
+			#ReadMiss
+			export REGEX="${cachelevelname}(0):readMiss="
+			export TOTALREGEX="${REGEX}"
+			export readmiss=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+
+			if [ $readmiss ] 2>/dev/null; then
+		    totalmisses=$(echo "$totalmisses + $readmiss + $writemiss" | bc -l)
+		    fi
+
+			export mpki=$(echo "($totalmisses)/($committed)" | bc -l)
+			export mpki=$(echo "($mpki)*1000" | bc -l)
+			printf "\t$mpki" >> $RESFILE
+
+		elif [ $level -eq 4 ]; then
+		for channel in {0..1}; do
+
+			export REGEX="${cachelevelname}(0):${channel}:wireflips"
+			export TOTALREGEX="${REGEX}:n"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			if [ "$totalvalue" -eq "$totalvalue" ] 2>/dev/null; then
+			coreTotalWireflipsValue=$(($coreTotalWireflipsValue + $totalvalue))
+			fi
+
+     		export REGEX="${cachelevelname}(0):${channel}:Onecount"
+			export TOTALREGEX="$REGEX\:n"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			if [ "$totalvalue" -eq "$totalvalue" ] 2>/dev/null; then
+			totalOneCount=$(($totalOneCount + $totalvalue))
+			fi
+
+			#numOperations
+			export REGEX="${cachelevelname}(0):${channel}:numOperations"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+			if [ "$totalvalue" -eq "$totalvalue" ] 2>/dev/null; then
+		    coreTotalNumOpsValue=$(($coreTotalNumOpsValue + $totalvalue))
+		    fi
+
+			#TotalDynEnergy
+			export REGEX="${cachelevelname}(0):${channel}:TotalDynEnergy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+			if [ $totalvalue ] 2>/dev/null; then
+		    coreTotalDynEnergyValue=$(echo "($coreTotalDynEnergyValue + $totalvalue)" | bc -l)
+		    fi
+
+		    #TerminationEnergy
+			export REGEX="${cachelevelname}(0):${channel}:TerminationEnergy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+			if [ $totalvalue ] 2>/dev/null; then
+		    coreTotalTermEnergyValue=$(echo "($coreTotalTermEnergyValue + $totalvalue)" | bc -l)
+		    fi
+
+		    #TerminationEnergy
+			export REGEX="${cachelevelname}(0):${channel}:background_energy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+			if [ $totalvalue ] 2>/dev/null; then
+		    DDRBackgroundEnergy=$(echo "($DDRBackgroundEnergy + $totalvalue)/1000" | bc -l)
+		    fi
+
+		    #TerminationEnergy
+			export REGEX="${cachelevelname}(0):${channel}:foreground_energy"
+			export TOTALREGEX="${REGEX}"
+			export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[2]}'`
+			if [ $totalvalue ] 2>/dev/null; then
+		    DDRForegroundEnergy=$(echo "($DDRForegroundEnergy + $totalvalue)/1000" | bc -l)
+		    fi
+		done
+		#coreTotalTermEnergyValue=$(echo "$coreTotalTermEnergyValue / 1000000000000" | bc -l)
+		printf "\t$coreTotalWireflipsValue" >> $RESFILE
+     	printf "\t$totalOneCount" >> $RESFILE
+     	printf "\t$coreTotalNumOpsValue" >> $RESFILE
+     	printf "\t$coreTotalDynEnergyValue" >> $RESFILE
+     	printf "\t$coreTotalTermEnergyValue" >> $RESFILE
+     	printf "\t$DDRBackgroundEnergy" >> $RESFILE
+     	printf "\t$DDRForegroundEnergy" >> $RESFILE
+		fi
+
+
+		#if [ $level -eq 1 ] ||  [ $level -eq 2 ] || [ $level -eq 3 ]; then
+		#
+			#numOperations
+			#export REGEX="${cachelevel}_avgMemLat"
+			#export TOTALREGEX="$REGEX"
+			#export totalvalue=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); print a[3]}'`
+			#printf "\t$totalvalue" >> $RESFILE
+
+		#	export REGEX="${cachelevel}:chunkcount"
+		#	export TOTALREGEX="$REGEX\:n"
+		#	export IMMIGRATION="$REPWORD:${cachelevel}:chunkcount.dat"
+		#	printf "" > $IMMIGRATION
+		#	export total=`grep $TOTALREGEX esesc_$REPNAME.* | awk '{split($0, a , '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+		#	for i in {0..16}; do
+		#		REGEX="${cachelevel}:chunkcount(${i})"
+		#  		export CHUNK=`grep $REGEX esesc_$REPNAME.* | awk '{split($0, a, '\"=\"'); split(a[2], b, '\".\"');  print b[1]}'`
+		#		value=`echo "($CHUNK*100.00)/$total" | bc -l`
+		#  		printf "$value"  >> $IMMIGRATION
+		#  		printf "\t$i\n" >> $IMMIGRATION
+		# 	done
+		#
+		#
+		#
+		#	#create script for gnuplot
+		#	export SCRFILE="$REPWORD:${cachelevelname}:chunkcount.gp"
+		#	export PNGFILE="$REPWORD:${cachelevelname}:chunkcount.png"
+		#	printf "" > $SCRFILE
+		#	printf "set terminal png nocrop enhanced size 450,320 font \"arial,8\"\n" >> $SCRFILE
+		#	printf "set output '$PNGFILE'\n" >> $SCRFILE
+		#	printf "set boxwidth 0.9 absolute\n" >> $SCRFILE
+		#	printf "#set style fill   solid 1.00 border lt -1\n" >> $SCRFILE
+		#	printf "set style fill   pattern 1 border lt -1\n" >> $SCRFILE
+		#	printf "set key inside right top vertical Right noreverse noenhanced autotitle nobox\n" >> $SCRFILE
+		#	printf "set style histogram clustered gap 1 title textcolor lt -1\n" >> $SCRFILE
+		#	printf "set datafile missing '-'\n" >> $SCRFILE
+		#	printf "set datafile separator \",\"\n" >> $SCRFILE
+		#	printf "set style data histograms\n" >> $SCRFILE
+		#	printf "set xtics border in scale 0,0 nomirror rotate by -45  autojustify\n" >> $SCRFILE
+		#	printf "set xtics  norangelimit\n" >> $SCRFILE
+		#	printf "set xtics   ()\n" >> $SCRFILE
+		#	printf "set title \"Collected data from ESESC\"\n" >> $SCRFILE
+		#	printf "set yrange [0:100] \n" >> $SCRFILE
+		#	printf "set xrange [0:255] \n" >> $SCRFILE
+		#	printf "# Last datafile plotted: \"immigration.dat\"\n" >> $SCRFILE
+		#	printf "plot '$IMMIGRATION' u 1" >> $SCRFILE
+		#
+		#	gnuplot $SCRFILE
+	#fi
+	done
+			done < "$REPLIST.rep"
+
+			#printf "== $REPLIST : $ARG2 :\n"
+			#cat $RESFILE
+  done
+  exit 1
+fi
+
+
+## INVALID PARAMETER !!
+################################################################################
+if [ "$ARG1" = "" ]; then
+  echo "USAGE: $ARG0  arg1 [arg2 [arg3]]"
+  echo "       arg1: 'backup', 'clean', 'dot', 'make', 'compile', and 'exec'"
+else
+  echo "ERROR: Ivalid parameter(s) '$ARG1' '$ARG2' '$ARG3'!!"
+fi
+exit 0
