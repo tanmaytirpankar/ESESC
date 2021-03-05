@@ -154,8 +154,6 @@ main/membench: pwth/libpeq/libpeq.a
 main/membench: emul/libqemuint/libqemuint.a
 main/membench: emul/libemulint/libemulint.a
 main/membench: misc/libsuc/libsuc.a
-main/membench: /usr/lib/x86_64-linux-gnu/libz.so
-main/membench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/membench: /usr/lib/x86_64-linux-gnu/libm.so
 main/membench: /usr/lib/x86_64-linux-gnu/librt.so
 main/membench: /usr/lib/x86_64-linux-gnu/libutil.so
@@ -164,6 +162,8 @@ main/membench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/membench: /usr/lib/x86_64-linux-gnu/libm.so
 main/membench: /usr/lib/x86_64-linux-gnu/librt.so
 main/membench: /usr/lib/x86_64-linux-gnu/libutil.so
+main/membench: /usr/lib/x86_64-linux-gnu/libz.so
+main/membench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/membench: main/CMakeFiles/membench.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable membench"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/membench.dir/link.txt --verbose=$(VERBOSE)

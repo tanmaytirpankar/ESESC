@@ -154,8 +154,6 @@ main/netBench: pwth/libpeq/libpeq.a
 main/netBench: emul/libqemuint/libqemuint.a
 main/netBench: emul/libemulint/libemulint.a
 main/netBench: misc/libsuc/libsuc.a
-main/netBench: /usr/lib/x86_64-linux-gnu/libz.so
-main/netBench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/netBench: /usr/lib/x86_64-linux-gnu/libm.so
 main/netBench: /usr/lib/x86_64-linux-gnu/librt.so
 main/netBench: /usr/lib/x86_64-linux-gnu/libutil.so
@@ -164,6 +162,8 @@ main/netBench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/netBench: /usr/lib/x86_64-linux-gnu/libm.so
 main/netBench: /usr/lib/x86_64-linux-gnu/librt.so
 main/netBench: /usr/lib/x86_64-linux-gnu/libutil.so
+main/netBench: /usr/lib/x86_64-linux-gnu/libz.so
+main/netBench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/netBench: main/CMakeFiles/netBench.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable netBench"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/netBench.dir/link.txt --verbose=$(VERBOSE)

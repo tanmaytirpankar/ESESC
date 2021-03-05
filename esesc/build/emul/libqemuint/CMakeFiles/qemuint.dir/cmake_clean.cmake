@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/qemuint.dir/QEMUEmulInterface.cpp.o"
-  "CMakeFiles/qemuint.dir/QEMUReader.cpp.o"
-  "CMakeFiles/qemuint.dir/esescbinfmt.cpp.o"
   "CMakeFiles/qemuint.dir/QEMUInterface.cpp.o"
+  "CMakeFiles/qemuint.dir/esescbinfmt.cpp.o"
+  "CMakeFiles/qemuint.dir/QEMUReader.cpp.o"
   "libqemuint.pdb"
   "libqemuint.a"
 )

@@ -22,6 +22,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../misc/libsuc"
+  "../pwth/libpwrmodel"
+  "../simu/libcore"
   "../emul/libemulint"
   )
 
