@@ -273,8 +273,6 @@ main/live: main/../qemu/mips64el-linux-user/../crypto/aes.o
 main/live: main/../qemu/libqemuutil.a
 main/live: main/../qemu/libqemustub.a
 main/live: emul/libemulint/libemulint.a
-main/live: /usr/lib/x86_64-linux-gnu/libz.so
-main/live: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/live: /usr/lib/x86_64-linux-gnu/libm.so
 main/live: /usr/lib/x86_64-linux-gnu/librt.so
 main/live: /usr/lib/x86_64-linux-gnu/libutil.so
@@ -283,6 +281,8 @@ main/live: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/live: /usr/lib/x86_64-linux-gnu/libm.so
 main/live: /usr/lib/x86_64-linux-gnu/librt.so
 main/live: /usr/lib/x86_64-linux-gnu/libutil.so
+main/live: /usr/lib/x86_64-linux-gnu/libz.so
+main/live: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/live: main/CMakeFiles/live.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable live"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/live.dir/link.txt --verbose=$(VERBOSE)

@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/net.dir/ProtocolBase.cpp.o"
-  "CMakeFiles/net.dir/NetAddrMap.cpp.o"
-  "CMakeFiles/net.dir/PMessage.cpp.o"
   "CMakeFiles/net.dir/RoutingPolicy.cpp.o"
-  "CMakeFiles/net.dir/Router.cpp.o"
-  "CMakeFiles/net.dir/RoutingTable.cpp.o"
+  "CMakeFiles/net.dir/NetAddrMap.cpp.o"
   "CMakeFiles/net.dir/InterConn.cpp.o"
   "CMakeFiles/net.dir/Message.cpp.o"
+  "CMakeFiles/net.dir/RoutingTable.cpp.o"
+  "CMakeFiles/net.dir/PMessage.cpp.o"
+  "CMakeFiles/net.dir/Router.cpp.o"
+  "CMakeFiles/net.dir/ProtocolBase.cpp.o"
   "libnet.pdb"
   "libnet.a"
 )

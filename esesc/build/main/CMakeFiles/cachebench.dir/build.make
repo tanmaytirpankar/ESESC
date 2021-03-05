@@ -154,8 +154,6 @@ main/cachebench: pwth/libpeq/libpeq.a
 main/cachebench: emul/libqemuint/libqemuint.a
 main/cachebench: emul/libemulint/libemulint.a
 main/cachebench: misc/libsuc/libsuc.a
-main/cachebench: /usr/lib/x86_64-linux-gnu/libz.so
-main/cachebench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/libm.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/librt.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/libutil.so
@@ -164,6 +162,8 @@ main/cachebench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/libm.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/librt.so
 main/cachebench: /usr/lib/x86_64-linux-gnu/libutil.so
+main/cachebench: /usr/lib/x86_64-linux-gnu/libz.so
+main/cachebench: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/cachebench: main/CMakeFiles/cachebench.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cachebench"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cachebench.dir/link.txt --verbose=$(VERBOSE)
