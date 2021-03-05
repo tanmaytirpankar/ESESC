@@ -1,4 +1,4 @@
-# QEMU configure log Thu Mar  4 17:50:22 UTC 2021
+# QEMU configure log Wed Feb 17 23:40:27 UTC 2021
 # Configured with: '/home/ESESC/esesc/emul/qemu/configure' '--prefix=/home/ESESC/esesc/build/qemu' '--target-list=mips64el-linux-user' '--disable-virtfs' '--disable-numa' '--disable-nettle' '--disable-gcrypt' '--disable-bzip2' '--disable-libssh2' '--disable-curl' '--disable-linux-aio' '--disable-vhdx' '--disable-sdl' '--disable-docs' '--enable-esesc' '--python=python2' '--disable-seccomp' '--disable-spice' '--disable-tools' '--disable-werror' '--disable-guest-agent' '--disable-gtk' '--disable-libusb' '--disable-libnfs' '--disable-xen' '--disable-snappy' '--disable-lzo' '--disable-smartcard' '--disable-gnutls' '--disable-vnc' '--disable-bluez' '--cc=/usr/bin/cc'
 #
 /usr/bin/cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
@@ -93,7 +93,7 @@ config-temp/qemu-conf.c:2:28: fatal error: sys/capability.h: No such file or dir
                             ^
 compilation terminated.
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g
-/tmp/ccNvLTz8.o: In function `main':
+/tmp/cce2coyn.o: In function `main':
 /home/ESESC/esesc/build/qemu/config-temp/qemu-conf.c:5: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g -pthread
@@ -146,12 +146,12 @@ config-temp/qemu-conf.c:1:24: fatal error: sys/endian.h: No such file or directo
                         ^
 compilation terminated.
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g
-/tmp/cce6Fgfx.o: In function `main':
+/tmp/ccKjqVdH.o: In function `main':
 /home/ESESC/esesc/build/qemu/config-temp/qemu-conf.c:2: undefined reference to `sin'
 collect2: error: ld returned 1 exit status
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g -lm
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g
-/tmp/ccKJz7lF.o: In function `main':
+/tmp/cc0Z0ejP.o: In function `main':
 /home/ESESC/esesc/build/qemu/config-temp/qemu-conf.c:4: undefined reference to `timer_create'
 collect2: error: ld returned 1 exit status
 /usr/bin/cc -fPIE -DPIE -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wall -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -Wendif-labels -Wmissing-include-dirs -Wempty-body -Wnested-externs -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wold-style-declaration -Wold-style-definition -Wtype-limits -fstack-protector-all -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -Wl,-z,relro -Wl,-z,now -pie -m64 -g -pthread -lrt

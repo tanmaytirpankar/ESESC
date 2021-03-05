@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/pwrmodelut.cpp.o"
   "CMakeFiles/main.dir/libtest.cpp.o"
+  "CMakeFiles/main.dir/pwrmodelut.cpp.o"
   "libmain.pdb"
   "libmain.a"
 )

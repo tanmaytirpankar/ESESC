@@ -2362,7 +2362,6 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   SescConf->isPower2(section, "numBanks", 0);
 
   // read in config parameters
-  printNum = 0;
   dispatch  = SescConf->getInt(section, "dispatch");
   softPage  = SescConf->getInt(section, "softPage");
   memSize   = SescConf->getInt(section, "memSize") * 1024LL * 1024LL; // HBM Size (MB)
@@ -2673,11 +2672,6 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 {
     AddrType maddr = mreq->getAddr() & (memSize-1);
     AddrType vaultID, rankID, bankID, rowID, colID; //, tagID, blkID;
-    
-    if(printNum < 20) {
-        printf("Maddr: %#010x", maddr);
-	printNum++;
-    }
 
     freqBlockUsage.sample(true, maddr>>blkSizeLog2); // for Alpha
     freqBlockAccess.sample(false, maddr>>blkSizeLog2, read? 1: 2); // for Gamma TODO:  this sample must be taken when the access processed with RedCache

@@ -154,9 +154,6 @@ main/lsqtest: pwth/libpeq/libpeq.a
 main/lsqtest: emul/libqemuint/libqemuint.a
 main/lsqtest: emul/libemulint/libemulint.a
 main/lsqtest: misc/libsuc/libsuc.a
-main/lsqtest: /usr/lib/x86_64-linux-gnu/libm.so
-main/lsqtest: /usr/lib/x86_64-linux-gnu/librt.so
-main/lsqtest: /usr/lib/x86_64-linux-gnu/libutil.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libz.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libm.so
@@ -164,6 +161,9 @@ main/lsqtest: /usr/lib/x86_64-linux-gnu/librt.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libutil.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libz.so
 main/lsqtest: /usr/lib/x86_64-linux-gnu/libpixman-1.so
+main/lsqtest: /usr/lib/x86_64-linux-gnu/libm.so
+main/lsqtest: /usr/lib/x86_64-linux-gnu/librt.so
+main/lsqtest: /usr/lib/x86_64-linux-gnu/libutil.so
 main/lsqtest: main/CMakeFiles/lsqtest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lsqtest"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lsqtest.dir/link.txt --verbose=$(VERBOSE)

@@ -900,7 +900,6 @@ class WideIO: public MemObj {
 protected:
 
   //uint addrMapping;
-  uint printNum;
   uint dispatch;
   AddrType softPage;
   AddrType memSize;

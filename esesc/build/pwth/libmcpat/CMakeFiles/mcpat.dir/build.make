@@ -57,105 +57,81 @@ include pwth/libmcpat/CMakeFiles/mcpat.dir/progress.make
 # Include the compile flags for this target's objects.
 include pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o: ../pwth/libmcpat/core.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/core.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/core.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o: ../pwth/libmcpat/xmlParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/xmlParser.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/core.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/core.cpp > CMakeFiles/mcpat.dir/core.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/xmlParser.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp > CMakeFiles/mcpat.dir/xmlParser.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/core.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/core.cpp -o CMakeFiles/mcpat.dir/core.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/xmlParser.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp -o CMakeFiles/mcpat.dir/xmlParser.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o: ../pwth/libmcpat/gpu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/gpu.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/gpu.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/gpu.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/gpu.cpp > CMakeFiles/mcpat.dir/gpu.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/gpu.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/gpu.cpp -o CMakeFiles/mcpat.dir/gpu.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o: ../pwth/libmcpat/crossbar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/crossbar.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o: ../pwth/libmcpat/interconnect.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/interconnect.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/crossbar.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp > CMakeFiles/mcpat.dir/crossbar.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/interconnect.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp > CMakeFiles/mcpat.dir/interconnect.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/crossbar.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp -o CMakeFiles/mcpat.dir/crossbar.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/interconnect.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp -o CMakeFiles/mcpat.dir/interconnect.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o: ../pwth/libmcpat/basic_circuit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/basic_circuit.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o: ../pwth/libmcpat/component.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/component.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/component.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/basic_circuit.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp > CMakeFiles/mcpat.dir/basic_circuit.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/component.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/component.cpp > CMakeFiles/mcpat.dir/component.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/basic_circuit.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp -o CMakeFiles/mcpat.dir/basic_circuit.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/component.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/component.cpp -o CMakeFiles/mcpat.dir/component.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o
 
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o: ../pwth/libmcpat/technology.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/technology.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/technology.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.i: cmake_force
@@ -177,33 +153,225 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o.provides: pwth/libmcpat/CMak
 pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o: ../pwth/libmcpat/wire.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/wire.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/wire.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o: ../pwth/libmcpat/area.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/area.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/area.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/wire.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/wire.cpp > CMakeFiles/mcpat.dir/wire.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/area.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/area.cpp > CMakeFiles/mcpat.dir/area.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/wire.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/wire.cpp -o CMakeFiles/mcpat.dir/wire.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/area.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/area.cpp -o CMakeFiles/mcpat.dir/area.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o: ../pwth/libmcpat/nuca.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/nuca.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/nuca.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/nuca.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/nuca.cpp > CMakeFiles/mcpat.dir/nuca.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/nuca.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/nuca.cpp -o CMakeFiles/mcpat.dir/nuca.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o: ../pwth/libmcpat/io.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/io.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/io.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/io.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/io.cpp > CMakeFiles/mcpat.dir/io.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/io.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/io.cpp -o CMakeFiles/mcpat.dir/io.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o: ../pwth/libmcpat/arbiter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/arbiter.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/arbiter.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp > CMakeFiles/mcpat.dir/arbiter.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/arbiter.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp -o CMakeFiles/mcpat.dir/arbiter.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o: ../pwth/libmcpat/uca.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/uca.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/uca.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/uca.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/uca.cpp > CMakeFiles/mcpat.dir/uca.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/uca.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/uca.cpp -o CMakeFiles/mcpat.dir/uca.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o: ../pwth/libmcpat/core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/core.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/core.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/core.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/core.cpp > CMakeFiles/mcpat.dir/core.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/core.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/core.cpp -o CMakeFiles/mcpat.dir/core.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o: ../pwth/libmcpat/cacti_interface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/cacti_interface.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/cacti_interface.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp > CMakeFiles/mcpat.dir/cacti_interface.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/cacti_interface.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp -o CMakeFiles/mcpat.dir/cacti_interface.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o: ../pwth/libmcpat/crossbar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/crossbar.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/crossbar.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp > CMakeFiles/mcpat.dir/crossbar.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/crossbar.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/crossbar.cpp -o CMakeFiles/mcpat.dir/crossbar.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o: ../pwth/libmcpat/Ucache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/Ucache.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/Ucache.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp > CMakeFiles/mcpat.dir/Ucache.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/Ucache.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp -o CMakeFiles/mcpat.dir/Ucache.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o
 
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o: ../pwth/libmcpat/subarray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/subarray.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/subarray.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.i: cmake_force
@@ -225,33 +393,105 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o.provides: pwth/libmcpat/CMakeF
 pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o: ../pwth/libmcpat/logic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/logic.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/logic.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o: ../pwth/libmcpat/gpu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/gpu.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/gpu.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/logic.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/logic.cpp > CMakeFiles/mcpat.dir/logic.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/gpu.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/gpu.cpp > CMakeFiles/mcpat.dir/gpu.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/logic.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/logic.cpp -o CMakeFiles/mcpat.dir/logic.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/gpu.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/gpu.cpp -o CMakeFiles/mcpat.dir/gpu.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o: ../pwth/libmcpat/array.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/array.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/array.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/array.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/array.cpp > CMakeFiles/mcpat.dir/array.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/array.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/array.cpp -o CMakeFiles/mcpat.dir/array.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o: ../pwth/libmcpat/mat.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/mat.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/mat.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/mat.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/mat.cpp > CMakeFiles/mcpat.dir/mat.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/mat.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/mat.cpp -o CMakeFiles/mcpat.dir/mat.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o: ../pwth/libmcpat/sharedcache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/sharedcache.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/sharedcache.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp > CMakeFiles/mcpat.dir/sharedcache.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/sharedcache.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp -o CMakeFiles/mcpat.dir/sharedcache.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o
 
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o: ../pwth/libmcpat/decoder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/decoder.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/decoder.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.i: cmake_force
@@ -275,7 +515,7 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o.provides.build: pwth/libmcpat/C
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o: ../pwth/libmcpat/noc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/noc.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/noc.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.i: cmake_force
@@ -297,297 +537,9 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o.provides: pwth/libmcpat/CMakeFiles/
 pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o: ../pwth/libmcpat/htree2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/htree2.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/htree2.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/htree2.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/htree2.cpp > CMakeFiles/mcpat.dir/htree2.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/htree2.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/htree2.cpp -o CMakeFiles/mcpat.dir/htree2.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o: ../pwth/libmcpat/area.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/area.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/area.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/area.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/area.cpp > CMakeFiles/mcpat.dir/area.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/area.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/area.cpp -o CMakeFiles/mcpat.dir/area.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o: ../pwth/libmcpat/interconnect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/interconnect.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/interconnect.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp > CMakeFiles/mcpat.dir/interconnect.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/interconnect.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/interconnect.cpp -o CMakeFiles/mcpat.dir/interconnect.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o: ../pwth/libmcpat/bank.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/bank.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/bank.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/bank.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/bank.cpp > CMakeFiles/mcpat.dir/bank.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/bank.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/bank.cpp -o CMakeFiles/mcpat.dir/bank.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o: ../pwth/libmcpat/arbiter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/arbiter.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/arbiter.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp > CMakeFiles/mcpat.dir/arbiter.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/arbiter.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/arbiter.cpp -o CMakeFiles/mcpat.dir/arbiter.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o: ../pwth/libmcpat/router.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/router.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/router.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/router.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/router.cpp > CMakeFiles/mcpat.dir/router.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/router.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/router.cpp -o CMakeFiles/mcpat.dir/router.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o: ../pwth/libmcpat/io.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/io.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/io.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/io.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/io.cpp > CMakeFiles/mcpat.dir/io.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/io.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/io.cpp -o CMakeFiles/mcpat.dir/io.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o: ../pwth/libmcpat/component.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/component.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/component.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/component.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/component.cpp > CMakeFiles/mcpat.dir/component.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/component.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/component.cpp -o CMakeFiles/mcpat.dir/component.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o: ../pwth/libmcpat/mat.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/mat.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/mat.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/mat.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/mat.cpp > CMakeFiles/mcpat.dir/mat.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/mat.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/mat.cpp -o CMakeFiles/mcpat.dir/mat.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o: ../pwth/libmcpat/Ucache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/Ucache.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/Ucache.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp > CMakeFiles/mcpat.dir/Ucache.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/Ucache.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/Ucache.cpp -o CMakeFiles/mcpat.dir/Ucache.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o: ../pwth/libmcpat/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/main.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/main.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/main.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/main.cpp > CMakeFiles/mcpat.dir/main.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/main.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/main.cpp -o CMakeFiles/mcpat.dir/main.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o: ../pwth/libmcpat/cacti_interface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/cacti_interface.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/cacti_interface.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp > CMakeFiles/mcpat.dir/cacti_interface.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/cacti_interface.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/cacti_interface.cpp -o CMakeFiles/mcpat.dir/cacti_interface.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o
-
-
 pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o: ../pwth/libmcpat/processor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/processor.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/processor.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.i: cmake_force
@@ -609,129 +561,33 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o.provides: pwth/libmcpat/CMake
 pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o: ../pwth/libmcpat/xmlParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/xmlParser.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o: ../pwth/libmcpat/basic_circuit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/basic_circuit.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/xmlParser.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp > CMakeFiles/mcpat.dir/xmlParser.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/basic_circuit.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp > CMakeFiles/mcpat.dir/basic_circuit.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/xmlParser.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/xmlParser.cpp -o CMakeFiles/mcpat.dir/xmlParser.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/basic_circuit.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/basic_circuit.cpp -o CMakeFiles/mcpat.dir/basic_circuit.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o: ../pwth/libmcpat/nuca.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/nuca.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/nuca.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/nuca.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/nuca.cpp > CMakeFiles/mcpat.dir/nuca.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/nuca.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/nuca.cpp -o CMakeFiles/mcpat.dir/nuca.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o: ../pwth/libmcpat/array.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/array.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/array.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/array.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/array.cpp > CMakeFiles/mcpat.dir/array.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/array.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/array.cpp -o CMakeFiles/mcpat.dir/array.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o: ../pwth/libmcpat/sharedcache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/sharedcache.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/sharedcache.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp > CMakeFiles/mcpat.dir/sharedcache.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/sharedcache.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/sharedcache.cpp -o CMakeFiles/mcpat.dir/sharedcache.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o
-
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o: ../pwth/libmcpat/memoryctrl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/memoryctrl.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/memoryctrl.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp > CMakeFiles/mcpat.dir/memoryctrl.cpp.i
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/memoryctrl.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp -o CMakeFiles/mcpat.dir/memoryctrl.cpp.s
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires:
-
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides
-
-pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o
 
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o: ../pwth/libmcpat/XML_Parse.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/XML_Parse.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/XML_Parse.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.i: cmake_force
@@ -753,9 +609,81 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o.provides: pwth/libmcpat/CMake
 pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o
 
 
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o: ../pwth/libmcpat/wire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/wire.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/wire.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/wire.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/wire.cpp > CMakeFiles/mcpat.dir/wire.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/wire.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/wire.cpp -o CMakeFiles/mcpat.dir/wire.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o: ../pwth/libmcpat/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/main.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/main.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/main.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/main.cpp > CMakeFiles/mcpat.dir/main.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/main.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/main.cpp -o CMakeFiles/mcpat.dir/main.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o: ../pwth/libmcpat/router.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/router.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/router.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/router.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/router.cpp > CMakeFiles/mcpat.dir/router.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/router.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/router.cpp -o CMakeFiles/mcpat.dir/router.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o
+
+
 pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
 pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o: ../pwth/libmcpat/parameter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o"
 	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/parameter.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/parameter.cpp
 
 pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.i: cmake_force
@@ -777,98 +705,170 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o.provides: pwth/libmcpat/CMake
 pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o
 
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o: ../pwth/libmcpat/uca.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/uca.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/uca.cpp
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o: ../pwth/libmcpat/htree2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/htree2.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/htree2.cpp
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/uca.cpp.i"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/uca.cpp > CMakeFiles/mcpat.dir/uca.cpp.i
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/htree2.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/htree2.cpp > CMakeFiles/mcpat.dir/htree2.cpp.i
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/uca.cpp.s"
-	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/uca.cpp -o CMakeFiles/mcpat.dir/uca.cpp.s
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/htree2.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/htree2.cpp -o CMakeFiles/mcpat.dir/htree2.cpp.s
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires:
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires:
 
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
-	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides.build
-.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o
+pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o: ../pwth/libmcpat/bank.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/bank.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/bank.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/bank.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/bank.cpp > CMakeFiles/mcpat.dir/bank.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/bank.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/bank.cpp -o CMakeFiles/mcpat.dir/bank.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o: ../pwth/libmcpat/logic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/logic.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/logic.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/logic.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/logic.cpp > CMakeFiles/mcpat.dir/logic.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/logic.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/logic.cpp -o CMakeFiles/mcpat.dir/logic.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o
+
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o: pwth/libmcpat/CMakeFiles/mcpat.dir/flags.make
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o: ../pwth/libmcpat/memoryctrl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mcpat.dir/memoryctrl.cpp.o -c /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcpat.dir/memoryctrl.cpp.i"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp > CMakeFiles/mcpat.dir/memoryctrl.cpp.i
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcpat.dir/memoryctrl.cpp.s"
+	cd /home/ESESC/esesc/build/pwth/libmcpat && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/pwth/libmcpat/memoryctrl.cpp -o CMakeFiles/mcpat.dir/memoryctrl.cpp.s
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires:
+
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
+	$(MAKE) -f pwth/libmcpat/CMakeFiles/mcpat.dir/build.make pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides.build
+.PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides
+
+pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.provides.build: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o
 
 
 # Object files for target mcpat
 mcpat_OBJECTS = \
-"CMakeFiles/mcpat.dir/core.cpp.o" \
-"CMakeFiles/mcpat.dir/gpu.cpp.o" \
-"CMakeFiles/mcpat.dir/crossbar.cpp.o" \
-"CMakeFiles/mcpat.dir/basic_circuit.cpp.o" \
+"CMakeFiles/mcpat.dir/xmlParser.cpp.o" \
+"CMakeFiles/mcpat.dir/interconnect.cpp.o" \
+"CMakeFiles/mcpat.dir/component.cpp.o" \
 "CMakeFiles/mcpat.dir/technology.cpp.o" \
-"CMakeFiles/mcpat.dir/wire.cpp.o" \
+"CMakeFiles/mcpat.dir/area.cpp.o" \
+"CMakeFiles/mcpat.dir/nuca.cpp.o" \
+"CMakeFiles/mcpat.dir/io.cpp.o" \
+"CMakeFiles/mcpat.dir/arbiter.cpp.o" \
+"CMakeFiles/mcpat.dir/uca.cpp.o" \
+"CMakeFiles/mcpat.dir/core.cpp.o" \
+"CMakeFiles/mcpat.dir/cacti_interface.cpp.o" \
+"CMakeFiles/mcpat.dir/crossbar.cpp.o" \
+"CMakeFiles/mcpat.dir/Ucache.cpp.o" \
 "CMakeFiles/mcpat.dir/subarray.cpp.o" \
-"CMakeFiles/mcpat.dir/logic.cpp.o" \
+"CMakeFiles/mcpat.dir/gpu.cpp.o" \
+"CMakeFiles/mcpat.dir/array.cpp.o" \
+"CMakeFiles/mcpat.dir/mat.cpp.o" \
+"CMakeFiles/mcpat.dir/sharedcache.cpp.o" \
 "CMakeFiles/mcpat.dir/decoder.cpp.o" \
 "CMakeFiles/mcpat.dir/noc.cpp.o" \
-"CMakeFiles/mcpat.dir/htree2.cpp.o" \
-"CMakeFiles/mcpat.dir/area.cpp.o" \
-"CMakeFiles/mcpat.dir/interconnect.cpp.o" \
-"CMakeFiles/mcpat.dir/bank.cpp.o" \
-"CMakeFiles/mcpat.dir/arbiter.cpp.o" \
-"CMakeFiles/mcpat.dir/router.cpp.o" \
-"CMakeFiles/mcpat.dir/io.cpp.o" \
-"CMakeFiles/mcpat.dir/component.cpp.o" \
-"CMakeFiles/mcpat.dir/mat.cpp.o" \
-"CMakeFiles/mcpat.dir/Ucache.cpp.o" \
-"CMakeFiles/mcpat.dir/main.cpp.o" \
-"CMakeFiles/mcpat.dir/cacti_interface.cpp.o" \
 "CMakeFiles/mcpat.dir/processor.cpp.o" \
-"CMakeFiles/mcpat.dir/xmlParser.cpp.o" \
-"CMakeFiles/mcpat.dir/nuca.cpp.o" \
-"CMakeFiles/mcpat.dir/array.cpp.o" \
-"CMakeFiles/mcpat.dir/sharedcache.cpp.o" \
-"CMakeFiles/mcpat.dir/memoryctrl.cpp.o" \
+"CMakeFiles/mcpat.dir/basic_circuit.cpp.o" \
 "CMakeFiles/mcpat.dir/XML_Parse.cpp.o" \
+"CMakeFiles/mcpat.dir/wire.cpp.o" \
+"CMakeFiles/mcpat.dir/main.cpp.o" \
+"CMakeFiles/mcpat.dir/router.cpp.o" \
 "CMakeFiles/mcpat.dir/parameter.cpp.o" \
-"CMakeFiles/mcpat.dir/uca.cpp.o"
+"CMakeFiles/mcpat.dir/htree2.cpp.o" \
+"CMakeFiles/mcpat.dir/bank.cpp.o" \
+"CMakeFiles/mcpat.dir/logic.cpp.o" \
+"CMakeFiles/mcpat.dir/memoryctrl.cpp.o"
 
 # External object files for target mcpat
 mcpat_EXTERNAL_OBJECTS =
 
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o
-pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o
+pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/build.make
 pwth/libmcpat/libmcpat.a: pwth/libmcpat/CMakeFiles/mcpat.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library libmcpat.a"
@@ -880,37 +880,37 @@ pwth/libmcpat/CMakeFiles/mcpat.dir/build: pwth/libmcpat/libmcpat.a
 
 .PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/build
 
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/technology.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/core.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/crossbar.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/subarray.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/gpu.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/decoder.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/noc.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/area.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/interconnect.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/arbiter.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/io.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/component.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/mat.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/Ucache.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/cacti_interface.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/processor.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/xmlParser.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/nuca.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/array.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/sharedcache.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/basic_circuit.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/XML_Parse.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/wire.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/main.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/router.cpp.o.requires
 pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/parameter.cpp.o.requires
-pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/uca.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/htree2.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/bank.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/logic.cpp.o.requires
+pwth/libmcpat/CMakeFiles/mcpat.dir/requires: pwth/libmcpat/CMakeFiles/mcpat.dir/memoryctrl.cpp.o.requires
 
 .PHONY : pwth/libmcpat/CMakeFiles/mcpat.dir/requires
 

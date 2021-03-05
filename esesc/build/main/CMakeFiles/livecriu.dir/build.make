@@ -273,9 +273,6 @@ main/livecriu: main/../qemu/mips64el-linux-user/../crypto/aes.o
 main/livecriu: main/../qemu/libqemuutil.a
 main/livecriu: main/../qemu/libqemustub.a
 main/livecriu: emul/libemulint/libemulint.a
-main/livecriu: /usr/lib/x86_64-linux-gnu/libm.so
-main/livecriu: /usr/lib/x86_64-linux-gnu/librt.so
-main/livecriu: /usr/lib/x86_64-linux-gnu/libutil.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libz.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libm.so
@@ -283,6 +280,9 @@ main/livecriu: /usr/lib/x86_64-linux-gnu/librt.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libutil.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libz.so
 main/livecriu: /usr/lib/x86_64-linux-gnu/libpixman-1.so
+main/livecriu: /usr/lib/x86_64-linux-gnu/libm.so
+main/livecriu: /usr/lib/x86_64-linux-gnu/librt.so
+main/livecriu: /usr/lib/x86_64-linux-gnu/libutil.so
 main/livecriu: main/CMakeFiles/livecriu.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable livecriu"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/livecriu.dir/link.txt --verbose=$(VERBOSE)

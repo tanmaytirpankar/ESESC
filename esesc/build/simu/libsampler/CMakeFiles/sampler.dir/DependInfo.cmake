@@ -25,7 +25,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../pwth/libmcpat"
   "../pwth/libpwrmodel"
   "../pwth/libsesctherm"
-  "../simu/libmem"
   "../pwth/libpeq"
   "../emul/libqemuint"
   )

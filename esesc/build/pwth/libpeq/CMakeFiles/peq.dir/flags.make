@@ -6,5 +6,5 @@ CXX_FLAGS = -Ofast -mtune=native -DNDEBUG -fPIC
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ESESC/esesc/misc/libsuc -I/home/ESESC/esesc/pwth/libpwrmodel -I/home/ESESC/esesc/simu/libcore -I/home/ESESC/esesc/emul/libemulint 
+CXX_INCLUDES = -I/home/ESESC/esesc/misc/libsuc -I/home/ESESC/esesc/emul/libemulint 
 

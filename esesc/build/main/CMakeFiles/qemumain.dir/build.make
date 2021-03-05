@@ -154,9 +154,6 @@ main/qemumain: pwth/libpeq/libpeq.a
 main/qemumain: emul/libqemuint/libqemuint.a
 main/qemumain: emul/libemulint/libemulint.a
 main/qemumain: misc/libsuc/libsuc.a
-main/qemumain: /usr/lib/x86_64-linux-gnu/libm.so
-main/qemumain: /usr/lib/x86_64-linux-gnu/librt.so
-main/qemumain: /usr/lib/x86_64-linux-gnu/libutil.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libz.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libpixman-1.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libm.so
@@ -164,6 +161,9 @@ main/qemumain: /usr/lib/x86_64-linux-gnu/librt.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libutil.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libz.so
 main/qemumain: /usr/lib/x86_64-linux-gnu/libpixman-1.so
+main/qemumain: /usr/lib/x86_64-linux-gnu/libm.so
+main/qemumain: /usr/lib/x86_64-linux-gnu/librt.so
+main/qemumain: /usr/lib/x86_64-linux-gnu/libutil.so
 main/qemumain: main/CMakeFiles/qemumain.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable qemumain"
 	cd /home/ESESC/esesc/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qemumain.dir/link.txt --verbose=$(VERBOSE)

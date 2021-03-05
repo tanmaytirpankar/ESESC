@@ -57,33 +57,9 @@ include simu/libmem/CMakeFiles/mem.dir/progress.make
 # Include the compile flags for this target's objects.
 include simu/libmem/CMakeFiles/mem.dir/flags.make
 
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o: ../simu/libmem/TLB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/TLB.cpp.o -c /home/ESESC/esesc/simu/libmem/TLB.cpp
-
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/TLB.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/TLB.cpp > CMakeFiles/mem.dir/TLB.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/TLB.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/TLB.cpp -o CMakeFiles/mem.dir/TLB.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o
-
-
 simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
 simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o: ../simu/libmem/VPC.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o"
 	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/VPC.cpp.o -c /home/ESESC/esesc/simu/libmem/VPC.cpp
 
 simu/libmem/CMakeFiles/mem.dir/VPC.cpp.i: cmake_force
@@ -105,33 +81,81 @@ simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o.provides: simu/libmem/CMakeFiles/mem.di
 simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o: ../simu/libmem/MemXBar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MemXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/MemXBar.cpp
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o: ../simu/libmem/UnMemXBar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/UnMemXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MemXBar.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MemXBar.cpp > CMakeFiles/mem.dir/MemXBar.cpp.i
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/UnMemXBar.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp > CMakeFiles/mem.dir/UnMemXBar.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MemXBar.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MemXBar.cpp -o CMakeFiles/mem.dir/MemXBar.cpp.s
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/UnMemXBar.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp -o CMakeFiles/mem.dir/UnMemXBar.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o
+simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o: ../simu/libmem/Splitter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/Splitter.cpp.o -c /home/ESESC/esesc/simu/libmem/Splitter.cpp
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/Splitter.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/Splitter.cpp > CMakeFiles/mem.dir/Splitter.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/Splitter.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/Splitter.cpp -o CMakeFiles/mem.dir/Splitter.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o: ../simu/libmem/MSHR.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MSHR.cpp.o -c /home/ESESC/esesc/simu/libmem/MSHR.cpp
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MSHR.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MSHR.cpp > CMakeFiles/mem.dir/MSHR.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MSHR.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MSHR.cpp -o CMakeFiles/mem.dir/MSHR.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o
 
 
 simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
 simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o: ../simu/libmem/WideIO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o"
 	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/WideIO.cpp.o -c /home/ESESC/esesc/simu/libmem/WideIO.cpp
 
 simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.i: cmake_force
@@ -153,52 +177,28 @@ simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o.provides: simu/libmem/CMakeFiles/mem
 simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o: ../simu/libmem/NICECache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/NICECache.cpp.o -c /home/ESESC/esesc/simu/libmem/NICECache.cpp
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o: ../simu/libmem/MemXBar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MemXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/MemXBar.cpp
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/NICECache.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/NICECache.cpp > CMakeFiles/mem.dir/NICECache.cpp.i
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MemXBar.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MemXBar.cpp > CMakeFiles/mem.dir/MemXBar.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/NICECache.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/NICECache.cpp -o CMakeFiles/mem.dir/NICECache.cpp.s
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MemXBar.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MemXBar.cpp -o CMakeFiles/mem.dir/MemXBar.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o: ../simu/libmem/MarkovPrefetcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp > CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp -o CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o
+simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o
 
 
 simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
@@ -225,201 +225,33 @@ simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o.provides: simu/libmem/CMakeFiles/m
 simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o: ../simu/libmem/StridePrefetcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/StridePrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o: ../simu/libmem/TLB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/TLB.cpp.o -c /home/ESESC/esesc/simu/libmem/TLB.cpp
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/StridePrefetcher.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp > CMakeFiles/mem.dir/StridePrefetcher.cpp.i
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/TLB.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/TLB.cpp > CMakeFiles/mem.dir/TLB.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/StridePrefetcher.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp -o CMakeFiles/mem.dir/StridePrefetcher.cpp.s
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/TLB.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/TLB.cpp -o CMakeFiles/mem.dir/TLB.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o: ../simu/libmem/MSHR.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MSHR.cpp.o -c /home/ESESC/esesc/simu/libmem/MSHR.cpp
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MSHR.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MSHR.cpp > CMakeFiles/mem.dir/MSHR.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MSHR.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MSHR.cpp -o CMakeFiles/mem.dir/MSHR.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o: ../simu/libmem/GlobalHistoryBuffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o -c /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp > CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp -o CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o: ../simu/libmem/CCache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/CCache.cpp.o -c /home/ESESC/esesc/simu/libmem/CCache.cpp
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/CCache.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/CCache.cpp > CMakeFiles/mem.dir/CCache.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/CCache.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/CCache.cpp -o CMakeFiles/mem.dir/CCache.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o: ../simu/libmem/PortManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/PortManager.cpp.o -c /home/ESESC/esesc/simu/libmem/PortManager.cpp
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/PortManager.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/PortManager.cpp > CMakeFiles/mem.dir/PortManager.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/PortManager.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/PortManager.cpp -o CMakeFiles/mem.dir/PortManager.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o: ../simu/libmem/Bus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/Bus.cpp.o -c /home/ESESC/esesc/simu/libmem/Bus.cpp
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/Bus.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/Bus.cpp > CMakeFiles/mem.dir/Bus.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/Bus.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/Bus.cpp -o CMakeFiles/mem.dir/Bus.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o: ../simu/libmem/TaggedPrefetcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp > CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp -o CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o: ../simu/libmem/XAMIO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/XAMIO.cpp.o -c /home/ESESC/esesc/simu/libmem/XAMIO.cpp
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/XAMIO.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/XAMIO.cpp > CMakeFiles/mem.dir/XAMIO.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/XAMIO.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/XAMIO.cpp -o CMakeFiles/mem.dir/XAMIO.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o
+simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o
 
 
 simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
 simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o: ../simu/libmem/MemController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o"
 	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MemController.cpp.o -c /home/ESESC/esesc/simu/libmem/MemController.cpp
 
 simu/libmem/CMakeFiles/mem.dir/MemController.cpp.i: cmake_force
@@ -441,28 +273,196 @@ simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o.provides: simu/libmem/CMakeFi
 simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o: ../simu/libmem/DDRx.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/DDRx.cpp.o -c /home/ESESC/esesc/simu/libmem/DDRx.cpp
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o: ../simu/libmem/GXBar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/GXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/GXBar.cpp
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/DDRx.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/DDRx.cpp > CMakeFiles/mem.dir/DDRx.cpp.i
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/GXBar.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/GXBar.cpp > CMakeFiles/mem.dir/GXBar.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/DDRx.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/DDRx.cpp -o CMakeFiles/mem.dir/DDRx.cpp.s
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/GXBar.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/GXBar.cpp -o CMakeFiles/mem.dir/GXBar.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o
+simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o: ../simu/libmem/GlobalHistoryBuffer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o -c /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp > CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/GlobalHistoryBuffer.cpp -o CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o: ../simu/libmem/Bus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/Bus.cpp.o -c /home/ESESC/esesc/simu/libmem/Bus.cpp
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/Bus.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/Bus.cpp > CMakeFiles/mem.dir/Bus.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/Bus.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/Bus.cpp -o CMakeFiles/mem.dir/Bus.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o: ../simu/libmem/MarkovPrefetcher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp > CMakeFiles/mem.dir/MarkovPrefetcher.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/MarkovPrefetcher.cpp -o CMakeFiles/mem.dir/MarkovPrefetcher.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o: ../simu/libmem/StridePrefetcher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/StridePrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/StridePrefetcher.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp > CMakeFiles/mem.dir/StridePrefetcher.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/StridePrefetcher.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/StridePrefetcher.cpp -o CMakeFiles/mem.dir/StridePrefetcher.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o: ../simu/libmem/PortManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/PortManager.cpp.o -c /home/ESESC/esesc/simu/libmem/PortManager.cpp
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/PortManager.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/PortManager.cpp > CMakeFiles/mem.dir/PortManager.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/PortManager.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/PortManager.cpp -o CMakeFiles/mem.dir/PortManager.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o: ../simu/libmem/TaggedPrefetcher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o -c /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp > CMakeFiles/mem.dir/TaggedPrefetcher.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/TaggedPrefetcher.cpp -o CMakeFiles/mem.dir/TaggedPrefetcher.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o: ../simu/libmem/NICECache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/NICECache.cpp.o -c /home/ESESC/esesc/simu/libmem/NICECache.cpp
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/NICECache.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/NICECache.cpp > CMakeFiles/mem.dir/NICECache.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/NICECache.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/NICECache.cpp -o CMakeFiles/mem.dir/NICECache.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o
 
 
 simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
@@ -489,126 +489,126 @@ simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o.provides: simu/libmem/CMakeFil
 simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o: ../simu/libmem/GXBar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/GXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/GXBar.cpp
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o: ../simu/libmem/DDRx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/DDRx.cpp.o -c /home/ESESC/esesc/simu/libmem/DDRx.cpp
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/GXBar.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/GXBar.cpp > CMakeFiles/mem.dir/GXBar.cpp.i
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/DDRx.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/DDRx.cpp > CMakeFiles/mem.dir/DDRx.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/GXBar.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/GXBar.cpp -o CMakeFiles/mem.dir/GXBar.cpp.s
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/DDRx.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/DDRx.cpp -o CMakeFiles/mem.dir/DDRx.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o
-
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o: ../simu/libmem/Splitter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/Splitter.cpp.o -c /home/ESESC/esesc/simu/libmem/Splitter.cpp
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/Splitter.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/Splitter.cpp > CMakeFiles/mem.dir/Splitter.cpp.i
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/Splitter.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/Splitter.cpp -o CMakeFiles/mem.dir/Splitter.cpp.s
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires:
-
-.PHONY : simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides
-
-simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o
+simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o
 
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o: ../simu/libmem/UnMemXBar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/UnMemXBar.cpp.o -c /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o: ../simu/libmem/XAMIO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/XAMIO.cpp.o -c /home/ESESC/esesc/simu/libmem/XAMIO.cpp
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/UnMemXBar.cpp.i"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp > CMakeFiles/mem.dir/UnMemXBar.cpp.i
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/XAMIO.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/XAMIO.cpp > CMakeFiles/mem.dir/XAMIO.cpp.i
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/UnMemXBar.cpp.s"
-	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/UnMemXBar.cpp -o CMakeFiles/mem.dir/UnMemXBar.cpp.s
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/XAMIO.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/XAMIO.cpp -o CMakeFiles/mem.dir/XAMIO.cpp.s
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires:
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires:
 
-.PHONY : simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires
+.PHONY : simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires
-	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides.build
-.PHONY : simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides
 
-simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o
+simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o
+
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o: simu/libmem/CMakeFiles/mem.dir/flags.make
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o: ../simu/libmem/CCache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mem.dir/CCache.cpp.o -c /home/ESESC/esesc/simu/libmem/CCache.cpp
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mem.dir/CCache.cpp.i"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ESESC/esesc/simu/libmem/CCache.cpp > CMakeFiles/mem.dir/CCache.cpp.i
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mem.dir/CCache.cpp.s"
+	cd /home/ESESC/esesc/build/simu/libmem && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ESESC/esesc/simu/libmem/CCache.cpp -o CMakeFiles/mem.dir/CCache.cpp.s
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires:
+
+.PHONY : simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
+	$(MAKE) -f simu/libmem/CMakeFiles/mem.dir/build.make simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides.build
+.PHONY : simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides
+
+simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.provides.build: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o
 
 
 # Object files for target mem
 mem_OBJECTS = \
-"CMakeFiles/mem.dir/TLB.cpp.o" \
 "CMakeFiles/mem.dir/VPC.cpp.o" \
-"CMakeFiles/mem.dir/MemXBar.cpp.o" \
-"CMakeFiles/mem.dir/WideIO.cpp.o" \
-"CMakeFiles/mem.dir/NICECache.cpp.o" \
-"CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o" \
-"CMakeFiles/mem.dir/SL0Cache.cpp.o" \
-"CMakeFiles/mem.dir/StridePrefetcher.cpp.o" \
-"CMakeFiles/mem.dir/MSHR.cpp.o" \
-"CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o" \
-"CMakeFiles/mem.dir/CCache.cpp.o" \
-"CMakeFiles/mem.dir/PortManager.cpp.o" \
-"CMakeFiles/mem.dir/Bus.cpp.o" \
-"CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o" \
-"CMakeFiles/mem.dir/XAMIO.cpp.o" \
-"CMakeFiles/mem.dir/MemController.cpp.o" \
-"CMakeFiles/mem.dir/DDRx.cpp.o" \
-"CMakeFiles/mem.dir/MemorySystem.cpp.o" \
-"CMakeFiles/mem.dir/GXBar.cpp.o" \
+"CMakeFiles/mem.dir/UnMemXBar.cpp.o" \
 "CMakeFiles/mem.dir/Splitter.cpp.o" \
-"CMakeFiles/mem.dir/UnMemXBar.cpp.o"
+"CMakeFiles/mem.dir/MSHR.cpp.o" \
+"CMakeFiles/mem.dir/WideIO.cpp.o" \
+"CMakeFiles/mem.dir/MemXBar.cpp.o" \
+"CMakeFiles/mem.dir/SL0Cache.cpp.o" \
+"CMakeFiles/mem.dir/TLB.cpp.o" \
+"CMakeFiles/mem.dir/MemController.cpp.o" \
+"CMakeFiles/mem.dir/GXBar.cpp.o" \
+"CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o" \
+"CMakeFiles/mem.dir/Bus.cpp.o" \
+"CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o" \
+"CMakeFiles/mem.dir/StridePrefetcher.cpp.o" \
+"CMakeFiles/mem.dir/PortManager.cpp.o" \
+"CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o" \
+"CMakeFiles/mem.dir/NICECache.cpp.o" \
+"CMakeFiles/mem.dir/MemorySystem.cpp.o" \
+"CMakeFiles/mem.dir/DDRx.cpp.o" \
+"CMakeFiles/mem.dir/XAMIO.cpp.o" \
+"CMakeFiles/mem.dir/CCache.cpp.o"
 
 # External object files for target mem
 mem_EXTERNAL_OBJECTS =
 
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o
 simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o
-simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o
 simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o
+simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o
 simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/build.make
 simu/libmem/libmem.a: simu/libmem/CMakeFiles/mem.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ESESC/esesc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX static library libmem.a"
@@ -620,27 +620,27 @@ simu/libmem/CMakeFiles/mem.dir/build: simu/libmem/libmem.a
 
 .PHONY : simu/libmem/CMakeFiles/mem.dir/build
 
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
 simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/VPC.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
-simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
 simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/UnMemXBar.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/Splitter.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MSHR.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/WideIO.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemXBar.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/SL0Cache.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/TLB.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemController.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/GXBar.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/GlobalHistoryBuffer.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/Bus.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MarkovPrefetcher.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/StridePrefetcher.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/PortManager.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/TaggedPrefetcher.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/NICECache.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/MemorySystem.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/DDRx.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/XAMIO.cpp.o.requires
+simu/libmem/CMakeFiles/mem.dir/requires: simu/libmem/CMakeFiles/mem.dir/CCache.cpp.o.requires
 
 .PHONY : simu/libmem/CMakeFiles/mem.dir/requires
 
