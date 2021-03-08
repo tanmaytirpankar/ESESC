@@ -1,1 +1,0 @@
-/home/ESESC/esesc/emul/qemu/tests/acpi-test-data/rebuild-expected-aml.sh

@@ -1,1 +1,0 @@
-/usr/bin/c++   -Ofast -mtune=native -DNDEBUG -fPIC   CMakeFiles/wrapper_ut.dir/wrapper_ut.cpp.o  -o wrapper_ut -rdynamic libpwrmodel.a ../libmcpat/libmcpat.a ../../misc/libsuc/libsuc.a -lpthread 

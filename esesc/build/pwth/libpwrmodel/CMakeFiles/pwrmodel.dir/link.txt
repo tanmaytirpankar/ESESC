@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpwrmodel.a  CMakeFiles/pwrmodel.dir/PowerStats.cpp.o CMakeFiles/pwrmodel.dir/Wrapper.cpp.o
-/usr/bin/ranlib libpwrmodel.a
