@@ -66,7 +66,8 @@ enum ReferenceState {
     GETDATA,
     DODIRTY,
     PUTDATA,
-    JOBDONE
+    JOBDONE,
+    PREFETCH
 };
 
 // Cache Reference State String

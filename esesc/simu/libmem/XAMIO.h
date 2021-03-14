@@ -322,7 +322,7 @@ public:
       }
     }
     else {
-      printf("ERROR: Invalid getRowBlock operation for %d!\n", index);
+      printf("ERROR: Invalid getRowBlock operation for %lu!\n", index);
       exit(0);
     }
   }
