@@ -1,1 +1,0 @@
-/usr/bin/c++   -Ofast -mtune=native -DNDEBUG -fPIC   CMakeFiles/thermmain.dir/thermmain.cpp.o  -o thermmain -rdynamic libsesctherm.a ../../misc/libsuc/libsuc.a ../libpwrmodel/libpwrmodel.a 

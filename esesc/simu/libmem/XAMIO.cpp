@@ -1642,7 +1642,7 @@ void XAMIO::addRequest(MemRequest *mreq, bool read)
               //remapTable[remapTableIndex].block = false;
               remapTable[remapTableIndex].count = 0;
               remapTable[remapTableIndex].index = remapTableNext++;
-              if(remapTableNext > (numSupers * numCVaults * numDBanks)) { printf("ERROR: remapTableNext(%lld) > %lld\n!", remapTableNext, (numSupers * numCVaults * numDBanks)); exit(0); }
+              if(remapTableNext > (numSupers * numCVaults * numDBanks)) { printf("ERROR: remapTableNext(%lld) > %ld\n!", remapTableNext, (numSupers * numCVaults * numDBanks)); exit(0); }
           }
           rptr = &(remapTable[remapTableIndex]);
       }

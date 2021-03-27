@@ -1,1 +1,0 @@
-/usr/bin/c++   -Ofast -mtune=native -DNDEBUG -fPIC   CMakeFiles/sesctherm_ut.dir/sesctherm_ut.cpp.o  -o sesctherm_ut -rdynamic libsesctherm.a ../../misc/libsuc/libsuc.a ../libpwrmodel/libpwrmodel.a 
