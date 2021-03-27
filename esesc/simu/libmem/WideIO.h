@@ -900,6 +900,7 @@ class WideIO: public MemObj {
 protected:
 
   //uint addrMapping;
+  bool do_prefetching = true; //fromHunter
   uint dispatch;
   AddrType softPage;
   AddrType memSize;
@@ -1026,6 +1027,7 @@ public:
   void addRequest(MemRequest *mreq, bool read);
   bool sendToVault(WideIOReference *mref);
   void doSkipBlocks(void);
+  void doPrefetcher(void);  //fromHunter
   void completeMRef(void);
   void doWriteBacks(void);
   void doFetchBlock(void);

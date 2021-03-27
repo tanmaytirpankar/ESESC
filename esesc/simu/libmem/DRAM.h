@@ -51,6 +51,7 @@ enum ReferenceState {
     UNKNOWN = 0,
     LOOPBAK,
     SKIPPED,
+    PREFTCH,    // New state for prefetching - fromHunter
     SCRATCH,
     READTAG,
     DOCHECK,
@@ -74,6 +75,7 @@ static char * ReferenceStateStr[] = {
     "UNKNOWN",
     "LOOPBAK",
     "SKIPPED",
+    "PREFTCH",  // fromHunter
     "SCRATCH",
     "READTAG",
     "DOCHECK",
