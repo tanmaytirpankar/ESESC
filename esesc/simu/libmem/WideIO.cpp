@@ -49,7 +49,8 @@ std::queue<ServicedRequest> WideIOServicedQ;
 std::queue<WideIOReference *> WideIOFetchedQ;
 std::queue<WideIOReference *> WideIOSkippedQ;
 std::queue<WideIOReference *> WideIOPrefetchQ;  //fromHunter
-std::queue<WideIOReference *> StreamBuffer;     //fromHunter
+//std::queue<WideIOReference *> StreamBuffer;     //fromHunter
+//std::queue<MemRequest *> StreamBuffer;
 std::queue<WideIOWriteBack> WideIOWriteBackQ;
 std::queue<WideIOReference *> WideIOCompleteQ;
 
@@ -970,6 +971,13 @@ void WideIOVault::addReference(WideIOReference *mref)
 // adding a returning reference to the WideIO Vault
 void WideIOVault::retReference(WideIOReference *mref)
 {
+    if (mref->getState() == PREFTCH) {  //fromHunter
+        // This must be added here since prefetches aren't sent through addReference() above
+        mref->setBlkSize(blkSize);
+        mref->setNumGrain(grnSize);
+        mref->setSetID((mref->getColID() / setSize) % numSets);
+        mref->setTagID(mref->getMAddr() >> (blkSizeLog2 + grnSizeLog2));
+    }
     retQueue.push(mref);
 }
 
@@ -2533,12 +2541,38 @@ void WideIO::doReqAck(MemRequest *lreq) // interface between main mem and hbm
         }
         else if (mref->getState() == PREFTCH) { // fromHunter
             // **** Will only reach here if do_prefetch flag is true **** //
-            StreamBuffer.push(mref);  // Push onto Stream Buffer
+            //
+            // 1st thing to do is free lreq - don't run out of memory
+            // check fetch count - don't sendUp because there is no mreq! We set it to NULL
+            // keep the vaults->retReference, don't worry about isFolded either
+            //
+            // Install the block in the cache when it's received.  From retReference is pushed onto RetQueue,
+            // which is popped off by WideIOVault::receiveReturned(), where it does DOPLACE.  It adds "returned"
+            // to log.  mref->printLog() to see it
+            //
+            // If you put addr in StreamBuffer in AddReq, might be too early? Add this address in doReqAck (here) to 
+            // StreamBuffer here.  
+            //
+            // Monitor access patterns and identify: 1. for which addresses to prefetch data (use online clustering based
+            // on some clusetering? Machine learning techniques? Example: Typically mem system allocates memory in pages. 
+            // Monitor accesses in page level.  Monitor and see if prefetching makes sense for that page, and mark certain
+            // pages for prefetching.  i.e. prefetch Page A or Page B? Read papers based on access patterns - but keep in 
+            // mind that these are for SRAM caches)
+            // 2. With prefetching, what are the prefetch addresses?  I.e. prefetch +64, or look into the past for this 
+            // address and see with previous addresses we subsequently accessed x+6.  Have a global stride?  But must be 
+            // adaptive, change over time. 
+            //
+            // We only need to create references, not requests.  
+            //
+            // Page-level address is like MAddr and do masking (4Kb a page for example) see softPage in esesc.conf. 
+            // Divide MAddr by pages to get the number. 
+            
+            free(lreq); // If you don't free lreq, you'll run out of memory quickly
+            if(mref->incFchCount()) {
+                vaults[mref->getVaultID()]->retReference(mref); // Send it to DRAM
+            }
 
-            //printf("ReqAck for prefetched addr: %x   placed in sb, now of size:%d\n", mref->getMAddr(), StreamBuffer.size());
-            //mref->printState();
-            delete mref;
-            free(lreq);
+            //printf("ReqAck for prefetched addr: %x setID is: %x\n", mref->getMAddr(), mref->getSetID());
         }
         else if(mref->getState() == DOFETCH) {
             //printf("ReqAck for addr: %x\n", mref->getMAddr());
@@ -2752,19 +2786,27 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
         mref->setTagIdeal(false);
         mref->setState(READTAG);
         receivedQueue.push(mref);
+        //printf("AddRequest for address: %lx\n", mref->getMAddr());
 
         if (do_prefetching) {   // fromHunter
           // request travels across entire scope, reference is created by parsing request for local processing
           WideIOReference *mref_dummy = new WideIOReference();
-              mref_dummy->setMReq(mreq);
-              mref_dummy->setMAddr(maddr);
-              mref_dummy->setVaultID(vaultID);
-              mref_dummy->setRankID(rankID);
-              mref_dummy->setBankID(bankID);
-              mref_dummy->setRowID(rowID);
-              mref_dummy->setColID(colID);
-              mref_dummy->setRead(read);
-              mref_dummy->addLog("received");
+          //mref_dummy->setMReq(mreq);  // FIXED: Don't attach the mreq, we're not using it for this prefetch.
+          mref_dummy->setMReq(NULL);
+          AddrType maddr_dummy = (mreq->getAddr()+64) & (memSize-1);  // Assumes a stride of 64b
+          mref_dummy->setMAddr(maddr_dummy);
+          colID   = (maddr_dummy &  (rowSize - 1));
+          bankID  = (maddr_dummy >>  rowSizeLog2)&(numBanks - 1);
+          rankID  = (maddr_dummy >> (rowSizeLog2 + numBanksLog2)) & (numRanks - 1);
+          vaultID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2)) & (numVaults - 1);
+          rowID   = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2 +    numVaultsLog2)) & (numRows - 1);
+          mref_dummy->setVaultID(vaultID);  // Use recomputed values
+          mref_dummy->setRankID(rankID);
+          mref_dummy->setBankID(bankID);
+          mref_dummy->setRowID(rowID);
+          mref_dummy->setColID(colID);
+          mref_dummy->setRead(read);
+          mref_dummy->addLog("received");
 
           WideIOPrefetchQ.push(mref_dummy);
         }
@@ -2851,15 +2893,13 @@ void WideIO::doPrefetcher(void)
   // printf("Prefetch Q size: %d\n", WideIOPrefetchQ.size());
   while(WideIOPrefetchQ.size() > 0) {
     WideIOReference *mref = WideIOPrefetchQ.front();
-    AddrType orig_addr = mref->getMAddr();
 
-    MemRequest *temp = MemRequest::createReqRead(this, true, orig_addr+64);
-    temp->setMRef((void *)mref);
+    MemRequest *temp = MemRequest::createReqRead(this, true, mref->getMAddr());
+    temp->setMRef((void *)mref);  // Attach the mref_dummy we created to this new request
     router->scheduleReq(temp, 1);
     mref->setState(PREFTCH);
-    mref->setMAddr(orig_addr+64);
     
-    //printf("New request, adding to prefetchQ: Original Addr: %x, Prefetch Addr: %x\n", orig_addr, mref->getMAddr());
+    //printf("New request, adding to prefetchQ: Original Addr: %x, Prefetch Addr: %x\n", mref->getMAddr()-64, mref->getMAddr());
     WideIOPrefetchQ.pop();
   }
 }
@@ -2982,30 +3022,9 @@ void WideIO::dispatchRefs(void)
 
     case SCRATCH:
     case READTAG:
-      // Check and see if in Stream Buffer first - fromHunter
-      bool matched = false;
-      while(StreamBuffer.size() > 0) {
-        WideIOReference *sb_front = StreamBuffer.front();
-        if (mref->getMAddr() == sb_front->getMAddr()) {
-          //printf("Match found! %x == %x\n", mref->getMAddr(), sb_front->getMAddr());
-          // **** Comment these 5 lines to turn off StreamBuffer (effectively) **** //
-          mref->sendUp();
-          //delete mref;
-          matched = true;
-          receivedQueue.pop();
-          break;
-        }
-        else {
-          //printf("No match found as %x != %x\n", mref->getMAddr(), sb_front->getMAddr());
-        }
-        StreamBuffer.pop();
-      }
-
-      if (!matched) {
-        if(notFull = !vaults[mref->getVaultID()]->isFull()) { // Original check
-          vaults[mref->getVaultID()]->addReference(mref);
-          receivedQueue.pop();
-        }
+      if(notFull = !vaults[mref->getVaultID()]->isFull()) { // Original check
+        vaults[mref->getVaultID()]->addReference(mref);
+        receivedQueue.pop();
       }
       break;
     }
