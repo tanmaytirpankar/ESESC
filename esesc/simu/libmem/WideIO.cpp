@@ -2788,7 +2788,7 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
         receivedQueue.push(mref);
         //printf("AddRequest for address: %lx\n", mref->getMAddr());
 
-        if (do_prefetching) {   // fromHunter
+        if (do_prefetching && prefetch_all_reqs) {   // fromHunter
           // request travels across entire scope, reference is created by parsing request for local processing
           WideIOReference *mref_dummy = new WideIOReference();
           //mref_dummy->setMReq(mreq);  // FIXED: Don't attach the mreq, we're not using it for this prefetch.
@@ -2960,6 +2960,34 @@ void WideIO::doFetchBlock(void)
         router->scheduleReq(temp, 1);
         mref->addLog("fetch 0x%llx with %p", mref->getGrainAddr(j), temp);
     }
+    if (do_prefetching && prefetch_only_misses) {   // fromHunter
+              // We do the prefetching here instead of in TagCheck() because this is inside of WideIO
+              // and so we have all of the local variables like memSize, rowSize, numBanks, etc.
+              // This works because whenever there is a cache miss, it is set to state DOFETCH in
+              // TagCheck() and pushed onto the WideIOFetchedQ, which is popped off here in doFetchBlock().
+              MemRequest *mreq = mref->getMReq();   // Get the mreq (needed for getAddr())
+
+              WideIOReference *mref_dummy = new WideIOReference();
+              mref_dummy->setMReq(NULL);
+              AddrType maddr_dummy = (mreq->getAddr()+64) & (memSize-1);  // Assumes a stride of 64b
+              mref_dummy->setMAddr(maddr_dummy);
+
+              AddrType vaultID, rankID, bankID, rowID, colID;
+              colID   = (maddr_dummy &  (rowSize - 1));
+              bankID  = (maddr_dummy >>  rowSizeLog2)&(numBanks - 1);
+              rankID  = (maddr_dummy >> (rowSizeLog2 + numBanksLog2)) & (numRanks - 1);
+              vaultID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2)) & (numVaults - 1);
+              rowID   = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2 +    numVaultsLog2)) & (numRows - 1);
+              mref_dummy->setVaultID(vaultID);  // Use recomputed values
+              mref_dummy->setRankID(rankID);
+              mref_dummy->setBankID(bankID);
+              mref_dummy->setRowID(rowID);
+              mref_dummy->setColID(colID);
+              mref_dummy->setRead(read);
+              mref_dummy->addLog("received");
+
+              WideIOPrefetchQ.push(mref_dummy);
+            }
     //pendingList.append(mref);
     WideIOFetchedQ.pop();
     countSentLower.inc();

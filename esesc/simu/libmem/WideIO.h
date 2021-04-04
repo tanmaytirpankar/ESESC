@@ -901,6 +901,8 @@ protected:
 
   //uint addrMapping;
   bool do_prefetching = true; //fromHunter
+  bool prefetch_all_reqs = false;  // fromHunter
+  bool prefetch_only_misses = true; // fromHunter
   uint dispatch;
   AddrType softPage;
   AddrType memSize;
