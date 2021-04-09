@@ -42,8 +42,8 @@
 //#include <queue>
 //#include <cmath>
 //#include "bingo_prefetcher.cpp" // fromHunter
-//#include "bingo_multitable.cpp"   // fromHunter
-#include "bop.cpp"
+#include "bingo_multitable.cpp"   // fromHunter
+//#include "bop.cpp"
 
 
 // WideIO clock, scaled wrt globalClock
@@ -2838,6 +2838,7 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
                 //   }
                 //   printf("\n");
                 // }
+                int num_prefetched = 0;
                 for (int i = 0; i < to_prefetch.size(); i++) {
                   if (to_prefetch[i] != mref->getGrainAddr(0)) {  // Don't fetch the same thing twice!
                     WideIOReference *mref_dummy = new WideIOReference();
@@ -2858,6 +2859,9 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
                     mref_dummy->addLog("received");
 
                     WideIOPrefetchQ.push(mref_dummy);
+                    ++num_prefetched;
+                    if (num_prefetched >= 1)  // Prefetch degree of 1: only prefetch 1 thing per miss
+                      break;
                   }
                 }
               }
@@ -3009,7 +3013,7 @@ void WideIO::doWriteBacks(void)
     WideIOWriteBack wb = WideIOWriteBackQ.front();
     // printf("WRITEBACK: address %x\n", wb.maddr);
     if (do_prefetching && prefetch_with_bingo) {  // fromHunter
-      dram_prefetcher_cache_fill_(0, wb.maddr, 0, 0, 0, 0);  // Tell BINGO which block is evicted (so that region can be added to PHT)
+      dram_prefetcher_cache_fill_(0, 0, 0, 0, 0, wb.maddr);  // Tell BINGO which block is evicted (so that region can be added to PHT)
     }
     router->sendDirtyDisp(wb.maddr, true, 1);
     WideIOWriteBackQ.pop();

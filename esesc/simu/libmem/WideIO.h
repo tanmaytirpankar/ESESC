@@ -911,10 +911,11 @@ protected:
   bool prefetch_all_reqs = false;    // fromHunter
   bool prefetch_only_misses = false; // fromHunter
 
-  bool prefetch_with_bingo = false;   // fromHunter
-  bool bingo_prefetch_only_misses = false; //fromHunter  // Generally this should be true if using BINGO, prefetching all is too much
+  bool prefetch_with_bingo = true;   // fromHunter
+  bool bingo_prefetch_only_misses = true; //fromHunter  // BINGO has its own method of deciding when to prefetch or not, but I'm seeing better results
+                                                        // only listening to their suggestion when the current request is a DRAM miss
 
-  bool prefetch_with_bop = true;  //fromHunter    // Note you also need to uncomment to include 'bop.cpp'
+  bool prefetch_with_bop = false;  //fromHunter    // Note you also need to uncomment to include 'bop.cpp'
 
   bool init_done = false;     // fromHunter
   uint dispatch;
