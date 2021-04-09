@@ -248,6 +248,7 @@ class WideIOReference {
   ReferenceState state;
   WideIOReference *prev, *next;
   bool canceled;
+  bool was_prefetch;  //fromHunter
 public:
   void addSibling(WideIOReference *mref) {
       if((this->prev == NULL) && (this->next == NULL)) {
@@ -287,6 +288,8 @@ public:
       }
   }
   bool isCanceled() { return canceled; }
+  bool wasPrefetch() { return was_prefetch; }
+  void setAsPrefetch() { was_prefetch = true; }
   void setState(ReferenceState state) { this->state = state; addLog("( %s )", ReferenceStateStr[state]); }
   ReferenceState getState() { return state; }
   WideIOReference *front, *back;
@@ -304,6 +307,7 @@ protected:
   MemRequest *mreq;
   std::vector<MemRequest *> lreqs;
   //std::queue<TagType> toWriteback;
+  std::vector<uint64_t> to_prefetch; //fromHunter
 
   // DRAM coordinates
   AddrType vaultID;
@@ -374,6 +378,7 @@ public:
   void setTagID(AddrType tagID) { this->tagID = tagID; }
   void setTagRow(TagRow tagRow) { this->tagRow = tagRow; }
   void setOpenRowID(AddrType openRowID) { this->openRowID = openRowID; }
+  void setToPrefetch(std::vector<uint64_t> to_prefetch) {this->to_prefetch = to_prefetch; }
 
   void setFolded(bool folded) { this->folded = folded; }
   bool isFolded() { return folded; }
@@ -395,6 +400,7 @@ public:
   Time_t getMRefDelay() { return deathTime - birthTime; }
   MemRequest *getMReq() { return mreq; }
   AddrType getMAddr() { return maddr; }
+  std::vector<uint64_t> getToPrefetch() {return to_prefetch; }
 
   AddrType  getVaultID() { return vaultID; }
   AddrType  getRankID() { return rankID; }
@@ -899,11 +905,21 @@ public:
 class WideIO: public MemObj {
 protected:
 
-  //uint addrMapping;
-  bool do_prefetching = true; //fromHunter
-  bool prefetch_all_reqs = false;  // fromHunter
-  bool prefetch_only_misses = true; // fromHunter
+  //uint addrMapping; 
+  bool do_prefetching = true; // fromHunter
+
+  bool prefetch_all_reqs = false;    // fromHunter
+  bool prefetch_only_misses = false; // fromHunter
+
+  bool prefetch_with_bingo = false;   // fromHunter
+  bool bingo_prefetch_only_misses = false; //fromHunter  // Generally this should be true if using BINGO, prefetching all is too much
+
+  bool prefetch_with_bop = true;  //fromHunter    // Note you also need to uncomment to include 'bop.cpp'
+
+  bool init_done = false;     // fromHunter
   uint dispatch;
+  uint num_total_requests;
+  uint num_cycles;
   AddrType softPage;
   AddrType memSize;
   AddrType hbmSize;
