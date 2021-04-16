@@ -248,6 +248,7 @@ class WideIOReference {
   ReferenceState state;
   WideIOReference *prev, *next;
   bool canceled;
+  bool was_prefetch;
 public:
   void addSibling(WideIOReference *mref) {
       if((this->prev == NULL) && (this->next == NULL)) {
@@ -287,6 +288,8 @@ public:
       }
   }
   bool isCanceled() { return canceled; }
+  bool wasPrefetch() { return was_prefetch; }
+  void setAsPrefetch() { was_prefetch = true; }
   void setState(ReferenceState state) { this->state = state; addLog("( %s )", ReferenceStateStr[state]); }
   ReferenceState getState() { return state; }
   WideIOReference *front, *back;
@@ -304,6 +307,7 @@ protected:
   MemRequest *mreq;
   std::vector<MemRequest *> lreqs;
   //std::queue<TagType> toWriteback;
+  std::vector<uint64_t> to_prefetch;
 
   // DRAM coordinates
   AddrType vaultID;
@@ -374,6 +378,7 @@ public:
   void setTagID(AddrType tagID) { this->tagID = tagID; }
   void setTagRow(TagRow tagRow) { this->tagRow = tagRow; }
   void setOpenRowID(AddrType openRowID) { this->openRowID = openRowID; }
+    void setToPrefetch(std::vector<uint64_t> to_prefetch) {this->to_prefetch = to_prefetch; }
 
   void setFolded(bool folded) { this->folded = folded; }
   bool isFolded() { return folded; }
@@ -395,6 +400,7 @@ public:
   Time_t getMRefDelay() { return deathTime - birthTime; }
   MemRequest *getMReq() { return mreq; }
   AddrType getMAddr() { return maddr; }
+  std::vector<uint64_t> getToPrefetch() {return to_prefetch; }
 
   AddrType  getVaultID() { return vaultID; }
   AddrType  getRankID() { return rankID; }
@@ -903,7 +909,13 @@ protected:
   bool do_prefetching = true; //fromHunter
   bool prefetch_all_reqs = false;  // fromHunter
   bool prefetch_only_misses = true; // fromHunter
-  uint dispatch;
+  bool prefetch_with_signaturepath = true;   // fromTanmay
+  bool spp_prefetch_only_misses = true; //fromTanmay
+
+  bool prefetch_with_spp = true;  //fromTanmay
+
+  bool init_done = false;
+    uint dispatch;
   AddrType softPage;
   AddrType memSize;
   AddrType hbmSize;

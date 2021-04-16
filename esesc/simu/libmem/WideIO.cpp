@@ -37,6 +37,7 @@
 #include "MemorySystem.h"
 #include "WideIO.h"
 #include "../../../../apps/esesc/simusignal.h"
+#include "spp.cpp"
 //#include <iostream>
 //#include "stdlib.h"
 //#include <queue>
@@ -99,6 +100,7 @@ WideIOReference::WideIOReference()
   , folded(false)
   , replica(false)
   , canceled(false)
+  , was_prefetch(false)
 {
   birthTime = globalClock;
   climbTime = globalClock;
@@ -2715,8 +2717,7 @@ TimeDelta_t WideIO::ffwrite(AddrType addr)
 
 
 // adding memory requests
-void WideIO::addRequest(MemRequest *mreq, bool read)
-{
+void WideIO::addRequest(MemRequest *mreq, bool read) {
     AddrType maddr = mreq->getAddr() & (memSize-1);
     AddrType vaultID, rankID, bankID, rowID, colID; //, tagID, blkID;
 
@@ -2809,6 +2810,69 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
           mref_dummy->addLog("received");
 
           WideIOPrefetchQ.push(mref_dummy);
+        }
+        if (do_prefetching && prefetch_with_signaturepath) {
+            if (init_done == false) {
+                llc_prefetcher_initialize_(0);
+                init_done = true;
+            }
+            AddrType ip = mreq->getPC();
+            if (ip != 0) {  // Ignore when PC=0, it's just setup code
+                std::vector<uint64_t> to_prefetch = llc_prefetcher_operate_(0, maddr, ip, 0, 0);
+                if (spp_prefetch_only_misses == true) {
+                    mref->setToPrefetch(to_prefetch);
+                } else if (spp_prefetch_only_misses == false) {
+                    if (to_prefetch.size() > 0) {
+//                        if (num_total_requests > 200000) {
+//                            printf("PREFCH: %d Maddr is: %x with grain: %x, fetch: ", num_cycles, maddr,
+//                                   mref->getGrainAddr(0));
+//                            for (int i = 0; i < to_prefetch.size(); i++) {
+//                                printf("%x, ", to_prefetch[i]);
+//                            }
+//                            printf("\n");
+//                        }
+                        int num_prefetched = 0;
+                        for (int i = 0; i < to_prefetch.size(); i++) {
+                            if (to_prefetch[i] != mref->getGrainAddr(0)) {  // Don't fetch the same thing twice!
+                                WideIOReference *mref_dummy = new WideIOReference();
+                                mref_dummy->setMReq(NULL);
+                                AddrType maddr_dummy = to_prefetch[i];
+                                mref_dummy->setMAddr(maddr_dummy);
+                                colID = (maddr_dummy & (rowSize - 1));
+                                bankID = (maddr_dummy >> rowSizeLog2) & (numBanks - 1);
+                                rankID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2)) & (numRanks - 1);
+                                vaultID =
+                                        (maddr_dummy >> (rowSizeLog2 + numBanksLog2 + numRanksLog2)) & (numVaults - 1);
+                                rowID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2 + numRanksLog2 + numVaultsLog2)) &
+                                        (numRows - 1);
+                                mref_dummy->setVaultID(vaultID);  // Use recomputed values
+                                mref_dummy->setRankID(rankID);
+                                mref_dummy->setBankID(bankID);
+                                mref_dummy->setRowID(rowID);
+                                mref_dummy->setColID(colID);
+                                mref_dummy->setRead(read);
+                                mref_dummy->addLog("received");
+
+                                WideIOPrefetchQ.push(mref_dummy);
+                                ++num_prefetched;
+                                if (num_prefetched >= 1)  // Prefetch degree of 1: only prefetch 1 thing per miss
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else if (do_prefetching && prefetch_with_spp) {
+            if (init_done == false) {
+                llc_prefetcher_initialize_(0);
+                init_done = true;
+            }
+            AddrType ip = mreq->getPC();
+            if (ip != 0) {
+                llc_prefetcher_cache_fill_(0, maddr, 0, 0, 0,
+                                            0); // FIXME: First param should be CPU number // prefetch=0 since it isn't
+            }
         }
         countReceived.inc();
     }
@@ -2942,6 +3006,10 @@ void WideIO::doWriteBacks(void)
 {
   for(int i=0; i < WideIOWriteBackQ.size(); ++i) {
     WideIOWriteBack wb = WideIOWriteBackQ.front();
+      // printf("WRITEBACK: address %x\n", wb.maddr);
+      if (do_prefetching && prefetch_with_signaturepath) {  // fromHunter
+          llc_prefetcher_cache_fill_(0, 0, 0, 0, 0, wb.maddr);  // Tell SPP which block is evicted
+      }
     router->sendDirtyDisp(wb.maddr, true, 1);
     WideIOWriteBackQ.pop();
     countWriteBack.inc();
@@ -2961,15 +3029,56 @@ void WideIO::doFetchBlock(void)
         mref->addLog("fetch 0x%llx with %p", mref->getGrainAddr(j), temp);
     }
     if (do_prefetching && prefetch_only_misses) {   // fromHunter
-              // We do the prefetching here instead of in TagCheck() because this is inside of WideIO
-              // and so we have all of the local variables like memSize, rowSize, numBanks, etc.
-              // This works because whenever there is a cache miss, it is set to state DOFETCH in
-              // TagCheck() and pushed onto the WideIOFetchedQ, which is popped off here in doFetchBlock().
-              MemRequest *mreq = mref->getMReq();   // Get the mreq (needed for getAddr())
+        // We do the prefetching here instead of in TagCheck() because this is inside of WideIO
+        // and so we have all of the local variables like memSize, rowSize, numBanks, etc.
+        // This works because whenever there is a cache miss, it is set to state DOFETCH in
+        // TagCheck() and pushed onto the WideIOFetchedQ, which is popped off here in doFetchBlock().
+        MemRequest *mreq = mref->getMReq();   // Get the mreq (needed for getAddr())
 
+        WideIOReference *mref_dummy = new WideIOReference();
+        mref_dummy->setMReq(NULL);
+        AddrType maddr_dummy = (mreq->getAddr()+64) & (memSize-1);  // Assumes a stride of 64b
+        mref_dummy->setMAddr(maddr_dummy);
+
+        AddrType vaultID, rankID, bankID, rowID, colID;
+        colID   = (maddr_dummy &  (rowSize - 1));
+        bankID  = (maddr_dummy >>  rowSizeLog2)&(numBanks - 1);
+        rankID  = (maddr_dummy >> (rowSizeLog2 + numBanksLog2)) & (numRanks - 1);
+        vaultID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2)) & (numVaults - 1);
+        rowID   = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2 +    numVaultsLog2)) & (numRows - 1);
+        mref_dummy->setVaultID(vaultID);  // Use recomputed values
+        mref_dummy->setRankID(rankID);
+        mref_dummy->setBankID(bankID);
+        mref_dummy->setRowID(rowID);
+        mref_dummy->setColID(colID);
+        mref_dummy->setRead(mref->isRead());
+        mref_dummy->addLog("received");
+
+        // if (int(maddr_dummy) == 537648792) {
+        //   AddrType pc_dummy = mreq->getPC();
+        //   printf("Miss on maddr: %x, with PC: %x\n", maddr_dummy, pc_dummy);
+        // }
+
+        WideIOPrefetchQ.push(mref_dummy);
+    }
+      if (do_prefetching && prefetch_with_signaturepath && spp_prefetch_only_misses) {
+          std::vector<uint64_t> to_prefetch = mref->getToPrefetch();
+
+          // if (num_total_requests > 200000) {
+          //   MemRequest *mreq = mref->getMReq();
+          //   AddrType maddr = mreq->getAddr();
+          //   printf("PREFCH: %d Maddr is: %x with grain: %x, fetch: ", num_cycles, maddr, mref->getGrainAddr(0));
+          //   for (int i = 0; i < to_prefetch.size(); i++) {
+          //     printf("%x, ", to_prefetch[i]);
+          //   }
+          //   printf("\n");
+          // }
+          int num_prefetched = 0;
+          for (int i = 0; i < to_prefetch.size(); i++) {
+              if (to_prefetch[i] != mref->getGrainAddr(0)) {
               WideIOReference *mref_dummy = new WideIOReference();
               mref_dummy->setMReq(NULL);
-              AddrType maddr_dummy = (mreq->getAddr()+64) & (memSize-1);  // Assumes a stride of 64b
+              AddrType maddr_dummy = to_prefetch[i];
               mref_dummy->setMAddr(maddr_dummy);
 
               AddrType vaultID, rankID, bankID, rowID, colID;
@@ -2983,11 +3092,47 @@ void WideIO::doFetchBlock(void)
               mref_dummy->setBankID(bankID);
               mref_dummy->setRowID(rowID);
               mref_dummy->setColID(colID);
-              mref_dummy->setRead(read);
+              mref_dummy->setRead(mref->isRead());
               mref_dummy->addLog("received");
+              mref_dummy->setAsPrefetch();
 
               WideIOPrefetchQ.push(mref_dummy);
+              ++num_prefetched;
+              if (num_prefetched >= 1)  // Prefetch degree of 1: only prefetch 1 thing per miss
+                  break;
             }
+          }
+      }
+      else if (do_prefetching && prefetch_with_spp) {
+          vector<uint64_t> to_prefetch = llc_prefetcher_operate_(0, mref->getMAddr(), 0, 0, 0); // Cache hit = 0 since we're in doFetchBlocks
+
+          for (int i = 0; i < to_prefetch.size(); i++) {
+              if (to_prefetch[i] != mref->getGrainAddr(0)) {  // Don't fetch the same thing twice!
+                  WideIOReference *mref_dummy = new WideIOReference();
+                  mref_dummy->setMReq(NULL);
+                  AddrType maddr_dummy = to_prefetch[i];
+                  mref_dummy->setMAddr(maddr_dummy);
+                  AddrType vaultID, rankID, bankID, rowID, colID;
+                  colID   = (maddr_dummy &  (rowSize - 1));
+                  bankID  = (maddr_dummy >>  rowSizeLog2)&(numBanks - 1);
+                  rankID  = (maddr_dummy >> (rowSizeLog2 + numBanksLog2)) & (numRanks - 1);
+                  vaultID = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2)) & (numVaults - 1);
+                  rowID   = (maddr_dummy >> (rowSizeLog2 + numBanksLog2   +  numRanksLog2 +    numVaultsLog2)) & (numRows - 1);
+                  mref_dummy->setVaultID(vaultID);  // Use recomputed values
+                  mref_dummy->setRankID(rankID);
+                  mref_dummy->setBankID(bankID);
+                  mref_dummy->setRowID(rowID);
+                  mref_dummy->setColID(colID);
+                  mref_dummy->setRead(mref->isRead());
+                  mref_dummy->addLog("received");
+                  mref_dummy->setAsPrefetch();
+
+                  WideIOPrefetchQ.push(mref_dummy);
+                  //printf("PREFETCHING! Orig: %x and new is: %x\n", mref->getMAddr(), maddr_dummy);
+                  llc_prefetcher_cache_fill_(0, maddr_dummy, 0, 0, 1, 0); // FIXME: First param should be CPU number   // prefetch=1
+              }
+          }
+      }
     //pendingList.append(mref);
     WideIOFetchedQ.pop();
     countSentLower.inc();
