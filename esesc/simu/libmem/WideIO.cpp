@@ -1329,9 +1329,13 @@ void WideIOVault::performTagCheck()
           I(index>-1);
           TagType victim = tagBuffer[rankID][bankID].getIndexTag(mref->getSetID(), index);
           if(victim.valid && victim.dirty) {
+            if (victim.prefetch && !victim.covered_a_miss) {
+              mref->setEvictedUnusedPrefetch();     // fromHunter for Overprediction, means this mref evicted an overprediction
+            }
             victim.valid = true;
             victim.dirty = false;
             victim.prefetch = mref->wasPrefetch();  // fromHunter for Miss Coverage
+            victim.covered_a_miss = false;          // fromHunter for Overprediction
             victim.value = mref->getTagID();
             tagBuffer[rankID][bankID].setIndexTag(mref->getSetID(), index, victim);
             tagBuffer[rankID][bankID].accessTagIndex(mref->getSetID(), index, false);
@@ -2907,7 +2911,7 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 void WideIO::manageWideIO(void)
 {
   if (globalClock % 5000000 == 0) {   // fromHunter
-    printf("Clk: %ld, num misses: %f, num misses saved: %f\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble());
+    printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), overprediction_overwritten_by_prefetch/countOverPredicted.getDouble());
   }
   finishWideIO();
   completeMRef();
@@ -2988,13 +2992,23 @@ void WideIO::completeMRef(void)
     if (!mref->wasPrefetch()) { // fromHunter for Miss Coverage, so we don't count prefetches as hit/miss (it never checks in DRAM)
       if(mref->getNumMatch()) {
           countHit.inc();
-          if(mref->getNumPrefetchMatch()) {
-             countMissesSaved.inc();    // fromHunter for Miss Coverage, how we count the misses covered
-           }
+          if (mref->getNumPrefetchMatch()) {
+              countMissesSaved.inc();     // fromHunter for Miss Coverage, how we count the misses covered
+          } 
       }
       else {
           countMiss.inc();
       }
+    }
+    else if (mref->wasPrefetch()){
+      if (mref->getIfEvictedUnusedPrefetch()) {
+        overprediction_overwritten_by_prefetch++;   // fromHunter for Overprediction, statistic for our interest
+      }
+    }
+
+
+    if (mref->getIfEvictedUnusedPrefetch()) {
+        countOverPredicted.inc();   // fromHunter for Overprediction
     }
     countRead.add(mref->getNumRead(), true);
     countWrite.add(mref->getNumWrite(), true);

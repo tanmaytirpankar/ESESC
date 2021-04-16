@@ -75,6 +75,7 @@ typedef struct _TagType {
     bool valid;
     bool dirty;
     bool prefetch;  // fromHunter for Miss Coverage
+    bool covered_a_miss;  // fromHunter for Overprediction
     //long count;
     //long waddr;
     AddrType value;
@@ -199,6 +200,7 @@ public:
         tag.valid = true;
         tag.dirty = false;
         tag.prefetch = p;   //fromHunter for Miss Coverage
+        tag.covered_a_miss = false; // fromHunter for Overprediction
         tag.value = tagID;
         setIndexTag(tag, setID, index);
         accessTagIndex(setID, index, false);
@@ -362,6 +364,7 @@ protected:
   bool tagIdeal;
   long numMatch;
   long numPrefetchMatch = 0;  //fromHunter for Miss Coverage
+  bool evictedUnusedPrefetch = false;   // fromHunter for Overprediction
   long numRead;
   long numWrite;
   long numLoad;
@@ -438,7 +441,9 @@ public:
   void incNumConflict() { numConflict++; }
 
   long getNumMatch() { return numMatch; }
-  long getNumPrefetchMatch() { return numPrefetchMatch; }
+  long getNumPrefetchMatch() { return numPrefetchMatch; }     // fromHunter for Miss Coverage
+  bool getIfEvictedUnusedPrefetch() { return evictedUnusedPrefetch; }   // fromHunter for Overprediction
+  void setEvictedUnusedPrefetch() { this->evictedUnusedPrefetch = true; }   // fromHunter for Overprediction 
   long getNumRead() { return numRead; }
   long getNumWrite() { return numWrite; }
   long getNumLoad() { return numLoad; }
@@ -457,6 +462,7 @@ public:
           numMatch++;
           if (set[i].prefetch == true) {  //fromHunter for Miss Coverage
             numPrefetchMatch++;
+            set[i].covered_a_miss = true; // fromHunter for Overprediction
           }
           return i;
       }
@@ -1008,6 +1014,7 @@ protected:
 
   GStatsCntr countMissesSaved;    //fromHunter for Miss Coverage
   GStatsCntr countOverPredicted;  //fromHunter for Miss Coverage
+  long overprediction_overwritten_by_prefetch = 0;
 
   //GStatsPie  pieRowAccess;
   //GStatsCntr countCurTogo;
