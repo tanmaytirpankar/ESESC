@@ -1331,6 +1331,7 @@ void WideIOVault::performTagCheck()
           if(victim.valid && victim.dirty) {
             victim.valid = true;
             victim.dirty = false;
+            victim.prefetch = mref->wasPrefetch();  // fromHunter for Miss Coverage
             victim.value = mref->getTagID();
             tagBuffer[rankID][bankID].setIndexTag(mref->getSetID(), index, victim);
             tagBuffer[rankID][bankID].accessTagIndex(mref->getSetID(), index, false);
@@ -1338,7 +1339,7 @@ void WideIOVault::performTagCheck()
             mref->setState(DOEVICT);
           }
           else {
-            tagBuffer[rankID][bankID].installTag(mref->getSetID(), mref->getTagID());
+            tagBuffer[rankID][bankID].installTag(mref->getSetID(), mref->getTagID(), mref->wasPrefetch());    // fromHunter for Miss Coverage added 3rd parameter
             mref->addLog("clean");
             mref->setState(INSTALL);
           }
@@ -1346,7 +1347,7 @@ void WideIOVault::performTagCheck()
       }
       else {
         if(mref->getState() == FINDTAG) {
-          printf("ERROR: Invalid memory refrence state!\n");
+          printf("ERROR: Invalid memory reference state!\n");
           mref->printState();
           mref->printLog();
           exit(0);
@@ -2340,6 +2341,9 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   , countInstall("%s:install", name)
   , tracHitRatio("%s:tracHitRatio", name)
 
+  , countMissesSaved("%s:missesSavedByPrefetching", name)   //fromHunter for Miss Coverage
+  , countOverPredicted("%s:overPredictions", name)           //fromHunter for Miss Coverage
+
   , freqBlockUsage("%s:freqBlockUsage", name)
   , freqBlockAccess("%s:freqBlockAccess", name)
   //, freqPageUsage("%s:freqPageUsage", name)
@@ -2363,8 +2367,6 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   I(current);
 
   // check config parameters
-  num_total_requests = 0;
-  num_cycles = 0;
   SescConf->isInt(section, "dispatch");
   SescConf->isPower2(section, "softPage", 0);
   SescConf->isPower2(section, "memSize", 0);
@@ -2723,7 +2725,6 @@ TimeDelta_t WideIO::ffwrite(AddrType addr)
 // adding memory requests
 void WideIO::addRequest(MemRequest *mreq, bool read)
 {
-    num_total_requests++;
     AddrType maddr = mreq->getAddr() & (memSize-1);
     AddrType vaultID, rankID, bankID, rowID, colID; //, tagID, blkID;
 
@@ -2857,6 +2858,7 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
                     mref_dummy->setColID(colID);
                     mref_dummy->setRead(read);
                     mref_dummy->addLog("received");
+                    mref_dummy->setAsPrefetch();      // fromHunter for Miss Coverage
 
                     WideIOPrefetchQ.push(mref_dummy);
                     ++num_prefetched;
@@ -2904,7 +2906,9 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 // WideIO cycle by cycle management
 void WideIO::manageWideIO(void)
 {
-  num_cycles++;
+  if (globalClock % 5000000 == 0) {   // fromHunter
+    printf("Clk: %ld, num misses: %f, num misses saved: %f\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble());
+  }
   finishWideIO();
   completeMRef();
   doWriteBacks();
@@ -2981,11 +2985,16 @@ void WideIO::completeMRef(void)
     WideIOReference *mref = WideIOCompleteQ.front();
     mref->sendUp();
 
-    if(mref->getNumMatch()) {
-        countHit.inc();
-    }
-    else {
-        countMiss.inc();
+    if (!mref->wasPrefetch()) { // fromHunter for Miss Coverage, so we don't count prefetches as hit/miss (it never checks in DRAM)
+      if(mref->getNumMatch()) {
+          countHit.inc();
+          if(mref->getNumPrefetchMatch()) {
+             countMissesSaved.inc();    // fromHunter for Miss Coverage, how we count the misses covered
+           }
+      }
+      else {
+          countMiss.inc();
+      }
     }
     countRead.add(mref->getNumRead(), true);
     countWrite.add(mref->getNumWrite(), true);
@@ -3058,6 +3067,7 @@ void WideIO::doFetchBlock(void)
         mref_dummy->setColID(colID);
         mref_dummy->setRead(read);
         mref_dummy->addLog("received");
+        mref_dummy->setAsPrefetch();      // fromHunter for Miss Coverage
 
         // if (int(maddr_dummy) == 537648792) {
         //   AddrType pc_dummy = mreq->getPC();
