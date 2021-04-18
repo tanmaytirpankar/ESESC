@@ -1327,8 +1327,13 @@ void WideIOVault::performTagCheck()
           I(index>-1);
           TagType victim = tagBuffer[rankID][bankID].getIndexTag(mref->getSetID(), index);
           if(victim.valid && victim.dirty) {
+              if (victim.prefetch && !victim.covered_a_miss) {
+                  mref->setEvictedUnusedPrefetch();     // fromHunter for Overprediction, means this mref evicted an overprediction
+              }
             victim.valid = true;
             victim.dirty = false;
+            victim.prefetch = mref->wasPrefetch();  // fromHunter for Miss Coverage
+            victim.covered_a_miss = false;          // fromHunter for Overprediction
             victim.value = mref->getTagID();
             tagBuffer[rankID][bankID].setIndexTag(mref->getSetID(), index, victim);
             tagBuffer[rankID][bankID].accessTagIndex(mref->getSetID(), index, false);
@@ -1336,7 +1341,7 @@ void WideIOVault::performTagCheck()
             mref->setState(DOEVICT);
           }
           else {
-            tagBuffer[rankID][bankID].installTag(mref->getSetID(), mref->getTagID());
+              tagBuffer[rankID][bankID].installTag(mref->getSetID(), mref->getTagID(), mref->wasPrefetch()); // fromHunter for Miss Coverage added 3rd parameter
             mref->addLog("clean");
             mref->setState(INSTALL);
           }
@@ -1344,7 +1349,7 @@ void WideIOVault::performTagCheck()
       }
       else {
         if(mref->getState() == FINDTAG) {
-          printf("ERROR: Invalid memory refrence state!\n");
+          printf("ERROR: Invalid memory reference state!\n");
           mref->printState();
           mref->printLog();
           exit(0);
@@ -2338,6 +2343,9 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   , countInstall("%s:install", name)
   , tracHitRatio("%s:tracHitRatio", name)
 
+  , countMissesSaved("%s:missesSavedByPrefetching", name)   //fromHunter for Miss Coverage
+  , countOverPredicted("%s:overPredictions", name)           //fromHunter for Miss Coverage
+
   , freqBlockUsage("%s:freqBlockUsage", name)
   , freqBlockAccess("%s:freqBlockAccess", name)
   //, freqPageUsage("%s:freqPageUsage", name)
@@ -2852,6 +2860,7 @@ void WideIO::addRequest(MemRequest *mreq, bool read) {
                                 mref_dummy->setColID(colID);
                                 mref_dummy->setRead(read);
                                 mref_dummy->addLog("received");
+                                mref_dummy->setAsPrefetch(); // fromHunter for Miss Coverage
 
                                 WideIOPrefetchQ.push(mref_dummy);
                                 ++num_prefetched;
@@ -2900,6 +2909,11 @@ void WideIO::addRequest(MemRequest *mreq, bool read) {
 // WideIO cycle by cycle management
 void WideIO::manageWideIO(void)
 {
+    if (globalClock % 5000000 == 0) {   // fromHunter
+        printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n",
+               globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(),
+               overprediction_overwritten_by_prefetch / countOverPredicted.getDouble());
+    }
   finishWideIO();
   completeMRef();
   doWriteBacks();
@@ -2976,12 +2990,26 @@ void WideIO::completeMRef(void)
     WideIOReference *mref = WideIOCompleteQ.front();
     mref->sendUp();
 
-    if(mref->getNumMatch()) {
-        countHit.inc();
-    }
-    else {
-        countMiss.inc();
-    }
+      if (!mref->wasPrefetch()) { // fromHunter for Miss Coverage, so we don't count prefetches as hit/miss (it never checks in DRAM)
+          if (mref->getNumMatch()) {
+              countHit.inc();
+              if (mref->getNumPrefetchMatch()) {
+                  countMissesSaved.inc();    // fromHunter for Miss Coverage, how we count the misses covered
+              }
+          } else {
+              countMiss.inc();
+          }
+      }
+      else if (mref->wasPrefetch()){
+          if (mref->getIfEvictedUnusedPrefetch()) {
+              overprediction_overwritten_by_prefetch++;   // fromHunter for Overprediction, statistic for our interest
+          }
+      }
+
+
+      if (mref->getIfEvictedUnusedPrefetch()) {
+          countOverPredicted.inc();   // fromHunter for Overprediction
+      }
     countRead.add(mref->getNumRead(), true);
     countWrite.add(mref->getNumWrite(), true);
     countLoad.add(mref->getNumLoad(), true);
@@ -3053,6 +3081,7 @@ void WideIO::doFetchBlock(void)
         mref_dummy->setColID(colID);
         mref_dummy->setRead(mref->isRead());
         mref_dummy->addLog("received");
+        mref_dummy->setAsPrefetch(); // fromHunter for Miss Coverage
 
         // if (int(maddr_dummy) == 537648792) {
         //   AddrType pc_dummy = mreq->getPC();

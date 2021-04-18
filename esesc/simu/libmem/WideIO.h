@@ -74,6 +74,8 @@ typedef struct _WideIOWriteBack {
 typedef struct _TagType {
     bool valid;
     bool dirty;
+    bool prefetch; // fromHunter for Miss Coverage
+    bool covered_a_miss; // fromHunter for Overprediction
     //long count;
     //long waddr;
     AddrType value;
@@ -135,6 +137,7 @@ public:
             TagType tag;
             tag.valid = false;
             tag.dirty = false;
+            tag.prefetch = false; // fromHunter for Miss Coverage
             tag.value = 0;
             set.push_back(tag);
         }
@@ -159,6 +162,18 @@ public:
         tagSets[setID].insert(tagSets[setID].begin(), tag);
         return true;
     }
+    bool setTagIndexAsPrefetch(AddrType setID, long index) {  // fromHunter for Miss Coverage
+        if((setID >= tagSets.size()) || (index >= tagSets[setID].size()) || (index < 0)) {
+            return false;
+        }
+        TagType tag = tagSets[setID][index];
+        tag.prefetch = true;
+        return true;
+    }
+    bool getSetIndexPrefetch(AddrType setID, long index) {    // fromHunter for Miss Coverage
+        TagType tag = tagSets[setID][index];
+        return tag.prefetch;
+    }
     bool setIndexTag(TagType tag, AddrType setID, long index) {
         if((setID >= tagSets.size()) || (index >= tagSets[setID].size())) {
             return false;
@@ -176,7 +191,7 @@ public:
         I(index<tagSets[setID].size);
         tagSets[setID][index] = tag;
     }
-    bool installTag(AddrType setID, AddrType tagID) {
+    bool installTag(AddrType setID, AddrType tagID, bool p = false) {
         long index = getVictimIndex(setID);
         if(index == -1) {
             return false;
@@ -185,6 +200,8 @@ public:
         tag.valid = true;
         tag.dirty = false;
         tag.value = tagID;
+        tag.prefetch = p; //fromHunter for Miss Coverage
+        tag.covered_a_miss = false; // fromHunter for Overprediction
         setIndexTag(tag, setID, index);
         accessTagIndex(setID, index, false);
         valid = true;
@@ -288,8 +305,8 @@ public:
       }
   }
   bool isCanceled() { return canceled; }
-  bool wasPrefetch() { return was_prefetch; }
-  void setAsPrefetch() { was_prefetch = true; }
+  bool wasPrefetch() { return this->was_prefetch; }
+  void setAsPrefetch() { this->was_prefetch = true; }
   void setState(ReferenceState state) { this->state = state; addLog("( %s )", ReferenceStateStr[state]); }
   ReferenceState getState() { return state; }
   WideIOReference *front, *back;
@@ -346,6 +363,8 @@ protected:
   bool replica;
   bool tagIdeal;
   long numMatch;
+  long numPrefetchMatch = 0; //fromHunter for Miss Coverage
+  bool evictedUnusedPrefetch = false; // fromHunter for Overprediction
   long numRead;
   long numWrite;
   long numLoad;
@@ -422,6 +441,9 @@ public:
   void incNumConflict() { numConflict++; }
 
   long getNumMatch() { return numMatch; }
+  long getNumPrefetchMatch() { return numPrefetchMatch; }     // fromHunter for Miss Coverage
+  bool getIfEvictedUnusedPrefetch() { return evictedUnusedPrefetch; }   // fromHunter for Overprediction
+  void setEvictedUnusedPrefetch() { this->evictedUnusedPrefetch = true; }   // fromHunter for Overprediction
   long getNumRead() { return numRead; }
   long getNumWrite() { return numWrite; }
   long getNumLoad() { return numLoad; }
@@ -438,10 +460,19 @@ public:
     for(int i=0; i < set.size(); ++i) {
       if((set[i].valid == true) && (set[i].value == tagID)) {
           numMatch++;
+          if (set[i].prefetch == true) {  //fromHunter for Miss Coverage
+              numPrefetchMatch++;
+              set[i].covered_a_miss = true; // fromHunter for Overprediction
+          }
           return i;
       }
     }
     return -1;
+  }
+  bool checkIfPrefetch(std::vector<TagType> set, long i) {  //fromHunter for Miss Coverage
+      if (set[i].prefetch == true)
+          return true;
+      else return false;
   }
   void setBlkSize(long blkSize) {
     this->blkSize = blkSize;
@@ -975,6 +1006,10 @@ protected:
   GStatsCntr  countEvict;
   GStatsCntr  countInstall;
   GStatsTrac  tracHitRatio;
+
+  GStatsCntr countMissesSaved;    //fromHunter for Miss Coverage
+  GStatsCntr countOverPredicted;  //fromHunter for Miss Coverage
+  long overprediction_overwritten_by_prefetch = 0;
 
   //GStatsPie  pieRowAccess;
   //GStatsCntr countCurTogo;
