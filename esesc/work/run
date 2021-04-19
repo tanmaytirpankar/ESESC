@@ -174,9 +174,9 @@ fi
 
 
 ## CRONO: A Benchmark Suite for Multithreaded Graph Algorithms
-#if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "apsp" ]; then
-  #echo "$ADIR/crono/bin/apsp.mips64 $NUMCORE 16384 32" >> $APPLIST
-#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "apsp" ]; then
+  echo "$ADIR/crono/bin/apsp.mips64 $NUMCORE 16384 32" >> $APPLIST
+fi
 if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "bc" ] || [ "$ARG2" = "xcache" ]; then
   echo "$ADIR/crono/bin/bc.mips64 $NUMCORE 3072 32" >> $APPLIST
 fi

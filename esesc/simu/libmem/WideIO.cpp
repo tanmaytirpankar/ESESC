@@ -1329,7 +1329,10 @@ void WideIOVault::performTagCheck()
           I(index>-1);
           TagType victim = tagBuffer[rankID][bankID].getIndexTag(mref->getSetID(), index);
           if(victim.valid && victim.dirty) {
-            if (victim.prefetch && !victim.covered_a_miss) {
+            if (victim.prefetch) {
+              if (victim.covered_a_miss) {
+                printf("EVICTING a cache block that was used for covering a miss: %lx %d\n", mref->getMAddr(), victim.covered_a_miss);
+              }
               mref->setEvictedUnusedPrefetch();     // fromHunter for Overprediction, means this mref evicted an overprediction
             }
             victim.valid = true;
@@ -2910,9 +2913,9 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 // WideIO cycle by cycle management
 void WideIO::manageWideIO(void)
 {
-  if (globalClock % 5000000 == 0) {   // fromHunter
-    printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), overprediction_overwritten_by_prefetch/countOverPredicted.getDouble());
-  }
+  // if (globalClock % 5000000 == 0) {   // fromHunter
+  //   printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), 100*(overprediction_overwritten_by_prefetch/countOverPredicted.getDouble()));
+  // }
   finishWideIO();
   completeMRef();
   doWriteBacks();
