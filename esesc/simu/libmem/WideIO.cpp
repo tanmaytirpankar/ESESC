@@ -2913,9 +2913,9 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 // WideIO cycle by cycle management
 void WideIO::manageWideIO(void)
 {
-  // if (globalClock % 5000000 == 0) {   // fromHunter
-  //   printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), 100*(overprediction_overwritten_by_prefetch/countOverPredicted.getDouble()));
-  // }
+  if (globalClock % 5000000 == 0) {   // fromHunter
+    printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), 100*(overprediction_overwritten_by_prefetch/countOverPredicted.getDouble()));
+  }
   finishWideIO();
   completeMRef();
   doWriteBacks();

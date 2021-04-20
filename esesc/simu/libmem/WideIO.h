@@ -460,7 +460,7 @@ public:
     for(int i=0; i < set.size(); ++i) {
       if((set[i].valid == true) && (set[i].value == tagID)) {
           numMatch++;
-          if (set[i].prefetch == true) {  //fromHunter for Miss Coverage
+          if ((set[i].prefetch == true) && (set[i].covered_a_miss == false)) {  //fromHunter for Miss Coverage  Added covered=False so we only mark the first time
             numPrefetchMatch++;
             set[i].covered_a_miss = true; // fromHunter for Overprediction
           }
@@ -937,7 +937,7 @@ class WideIO: public MemObj {
 protected:
 
   //uint addrMapping; 
-  bool do_prefetching = true; // fromHunter
+  bool do_prefetching = false; // fromHunter
 
   bool prefetch_all_reqs = false;    // fromHunter
   bool prefetch_only_misses = false; // fromHunter
