@@ -937,7 +937,7 @@ class WideIO: public MemObj {
 protected:
 
   //uint addrMapping; 
-  bool do_prefetching = false; // fromHunter
+  bool do_prefetching = true; // fromHunter
 
   bool prefetch_all_reqs = false;    // fromHunter
   bool prefetch_only_misses = false; // fromHunter
@@ -1015,6 +1015,7 @@ protected:
   GStatsCntr countMissesSaved;    //fromHunter for Miss Coverage
   GStatsCntr countOverPredicted;  //fromHunter for Miss Coverage
   long overprediction_overwritten_by_prefetch = 0;
+  //long prefetches_too_late = 0;          //fromHunter for prefetch check
 
   //GStatsPie  pieRowAccess;
   //GStatsCntr countCurTogo;

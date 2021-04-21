@@ -38,11 +38,11 @@
 #include "WideIO.h"
 #include "../../../../apps/esesc/simusignal.h"
 //#include <iostream>
-//#include "stdlib.h"
+#include "stdlib.h"
 //#include <queue>
 //#include <cmath>
-//#include "bingo_prefetcher.cpp" // fromHunter
-#include "bingo_multitable.cpp"   // fromHunter
+#include "bingo_prefetcher.cpp" // fromHunter
+//#include "bingo_multitable.cpp"   // fromHunter
 //#include "bop.cpp"
 
 
@@ -52,6 +52,7 @@ std::queue<ServicedRequest> WideIOServicedQ;
 std::queue<WideIOReference *> WideIOFetchedQ;
 std::queue<WideIOReference *> WideIOSkippedQ;
 std::queue<WideIOReference *> WideIOPrefetchQ;  //fromHunter
+//std::vector<AddrType> BeingPrefetched;          //fromHunter for prefetch check
 //std::queue<WideIOReference *> StreamBuffer;     //fromHunter
 //std::queue<MemRequest *> StreamBuffer;
 std::queue<WideIOWriteBack> WideIOWriteBackQ;
@@ -2346,13 +2347,13 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   , countUpdate("%s:update", name)
   , countEvict("%s:evict", name)
   , countInstall("%s:install", name)
-  , tracHitRatio("%s:tracHitRatio", name)
+  //, tracHitRatio("%s:tracHitRatio", name)
 
   , countMissesSaved("%s:missesSavedByPrefetching", name)   //fromHunter for Miss Coverage
   , countOverPredicted("%s:overPredictions", name)           //fromHunter for Miss Coverage
 
-  , freqBlockUsage("%s:freqBlockUsage", name)
-  , freqBlockAccess("%s:freqBlockAccess", name)
+  //, freqBlockUsage("%s:freqBlockUsage", name)
+  //, freqBlockAccess("%s:freqBlockAccess", name)
   //, freqPageUsage("%s:freqPageUsage", name)
   //, tracSkipRatio("%s:tracSkipRatio", name)
   //, heatRead("%s:heatRead", name)
@@ -2361,13 +2362,13 @@ WideIO::WideIO(MemorySystem* current, const char *section, const char *name)
   //, heatWriteHit("%s:heatWriteHit", name)
   //, heatBlockMiss("%s:heatBlockMiss", name)
   //, heatBlockUsage("%s:heatBlockUsage", name)
-  , histConflicts("%s:histConflicts", name)
+  //, histConflicts("%s:histConflicts", name)
 
-  , avgAccessTime("%s:avgAccessTime", name)
-  , tracAccessTime("%s:tracAccessTime", name)
-  , avgTCheckTime("%s:avgTCheckTime", name)
-  , tracTCheckTime("%s:tracTCheckTime", name)
-  , histTCheckTimes("%s:histTCheckTimes", name)
+  //, avgAccessTime("%s:avgAccessTime", name)
+  //, tracAccessTime("%s:tracAccessTime", name)
+  //, avgTCheckTime("%s:avgTCheckTime", name)
+  //, tracTCheckTime("%s:tracTCheckTime", name)
+  //, histTCheckTimes("%s:histTCheckTimes", name)
 {
   MemObj *lower_level = NULL;
 
@@ -2586,6 +2587,20 @@ void WideIO::doReqAck(MemRequest *lreq) // interface between main mem and hbm
             if(mref->incFchCount()) {
                 vaults[mref->getVaultID()]->retReference(mref); // Send it to DRAM
             }
+
+            // //fromHunter for prefetch check
+            // int closest = 9999999999;
+            // int closest_idx = 0;
+            // for (int k = 0; k < BeingPrefetched.size(); ++k) { 
+            //     int dif = abs(mref->getGrainAddr(0) - BeingPrefetched[k]);
+            //     if (dif < closest) {
+            //       closest = dif;
+            //       closest_idx = k;
+            //       if (dif == 0) break;
+            //     }
+            // }
+            // BeingPrefetched.erase(BeingPrefetched.begin()+closest_idx); //Always remove one from the list for each prefetch
+
 
             //printf("ReqAck for prefetched addr: %x setID is: %x\n", mref->getMAddr(), mref->getSetID());
         }
@@ -2913,8 +2928,8 @@ void WideIO::addRequest(MemRequest *mreq, bool read)
 // WideIO cycle by cycle management
 void WideIO::manageWideIO(void)
 {
-  if (globalClock % 5000000 == 0) {   // fromHunter
-    printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), 100*(overprediction_overwritten_by_prefetch/countOverPredicted.getDouble()));
+  if (globalClock % 50000000 == 0) {   // fromHunter
+    printf("Clk: %ld, num misses: %.0f, num misses saved: %.0f, overpredictions: %.0f of which %.2f%% were overwritten by other prefetches.\n", globalClock, countMiss.getDouble(), countMissesSaved.getDouble(), countOverPredicted.getDouble(), 100*(overprediction_overwritten_by_prefetch/countOverPredicted.getDouble()));
   }
   finishWideIO();
   completeMRef();
@@ -2974,10 +2989,11 @@ void WideIO::doPrefetcher(void)
   while(WideIOPrefetchQ.size() > 0) {
     WideIOReference *mref = WideIOPrefetchQ.front();
 
-    MemRequest *temp = MemRequest::createReqRead(this, true, mref->getMAddr()); // FIXME: Make this ReqReadPrefetch so it can be dropped?
+    MemRequest *temp = MemRequest::createReqRead(this, true, mref->getMAddr()); // FIXME: Use MAddr or GrainAddr(0)?
     temp->setMRef((void *)mref);  // Attach the mref_dummy we created to this new request
     router->scheduleReq(temp, 1);
     mref->setState(PREFTCH);
+    // BeingPrefetched.push_back(mref->getGrainAddr(0)); //fromHunter for prefetch check
     
     //printf("New request, adding to prefetchQ: Original Addr: %x, Prefetch Addr: %x\n", mref->getMAddr()-64, mref->getMAddr());
     WideIOPrefetchQ.pop();
@@ -3058,6 +3074,13 @@ void WideIO::doFetchBlock(void)
         temp->setMRef((void *)mref);
         router->scheduleReq(temp, 1);
         mref->addLog("fetch 0x%llx with %p", mref->getGrainAddr(j), temp);
+        // for (int k = 0; k < BeingPrefetched.size(); ++k) {          //fromHunter for prefetch check
+        //     // Check if it's already in the process of being prefetched: 
+        //     if (mref->getGrainAddr(j) == BeingPrefetched[k]) {
+        //       // printf("Prefetch was too late... %lx == %lx\n", mref->getGrainAddr(j), BeingPrefetched[k]);
+        //       prefetches_too_late++;
+        //     }
+        // }
     }
     if (do_prefetching && prefetch_only_misses) {   // fromHunter
         // We do the prefetching here instead of in TagCheck() because this is inside of WideIO
@@ -3096,15 +3119,6 @@ void WideIO::doFetchBlock(void)
       if (do_prefetching && prefetch_with_bingo && bingo_prefetch_only_misses) {
           std::vector<uint64_t> to_prefetch = mref->getToPrefetch();
 
-          // if (num_total_requests > 200000) {
-          //   MemRequest *mreq = mref->getMReq();
-          //   AddrType maddr = mreq->getAddr();
-          //   printf("PREFCH: %d Maddr is: %x with grain: %x, fetch: ", num_cycles, maddr, mref->getGrainAddr(0));
-          //   for (int i = 0; i < to_prefetch.size(); i++) {
-          //     printf("%x, ", to_prefetch[i]);
-          //   }
-          //   printf("\n");
-          // }
           int num_prefetched = 0;
           for (int i = 0; i < to_prefetch.size(); i++) {
             if (to_prefetch[i] != mref->getGrainAddr(0)) {  // Don't fetch the same thing twice!

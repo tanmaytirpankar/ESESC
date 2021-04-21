@@ -460,6 +460,7 @@ template <class T> vector<T> my_rotate(const vector<T> &x, int n) {
 }
 
 #define THRESH 0.20
+#define USE_ONLY_PC_ADDR 0   // 0 = false, 1 = true, only use PC+Address
 
 class PatternHistoryTableData {
   public:
@@ -522,8 +523,13 @@ class PatternHistoryTable : LRUSetAssociativeCache<PatternHistoryTableData> {
             }
         }
         if (pattern.empty()) {
-            /* no max match was found, time for a vote! */
-            pattern = this->vote(min_matches);
+            if (USE_ONLY_PC_ADDR == 0) {    //fromHunter, so we can turn off checking for a PC+Offset
+                /* no max match was found, time for a vote! */
+                pattern = this->vote(min_matches);
+            } else {
+                vector<bool> ret(this->pattern_len, false); //fromHunter, return empty vector of bools
+                return ret;
+            }
         }
         int offset = address % this->pattern_len;
         pattern = my_rotate(pattern, +offset);
@@ -667,7 +673,7 @@ const int PHT_SIZE = 16 * 1024;
 const int FT_SIZE = 64;
 const int AT_SIZE = 128;
 const int NUM_CPUS = 1; // FIXME: If multi-core
-const int LOG2_BLOCK_SIZE = 6;  // from ChampSim.h, assumes 64B cache blocks
+const int LOG2_BLOCK_SIZE = 6;  // from ChampSim.h, assumes 64B cache block
 
 vector<Bingo> prefetchers;
 

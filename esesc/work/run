@@ -202,9 +202,9 @@ fi
 if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "triangle" ] || [ "$ARG2" = "xcache" ]; then
   echo "$ADIR/crono/bin/triangle_counting_lock.mips64 0 $NUMCORE 262144 64" >> $APPLIST
 fi
-#if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "tsp" ]; then
-#  echo "$ADIR/crono/bin/tsp.mips64 $NUMCORE 20" >> $APPLIST
-#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "crono" ] || [ "$ARG2" = "tsp" ]; then
+ echo "$ADIR/crono/bin/tsp.mips64 $NUMCORE 20" >> $APPLIST
+fi
 
 
 ## CLUSTERING
@@ -275,15 +275,15 @@ fi
 #if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "is" ]; then
 #  echo "$ADIR/npb/bin/is.mips64 $NUMCORE" >> $APPLIST
 #fi
-#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "lu" ]; then
-#  echo "$ADIR/npb/bin/lu.mips64 $NUMCORE" >> $APPLIST
-#fi
-#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "mg" ]; then
-#  echo "$ADIR/npb/bin/mg.mips64 $NUMCORE" >> $APPLIST
-#fi
-#if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "sp" ]; then
-#  echo "$ADIR/npb/bin/sp.mips64 $NUMCORE" >> $APPLIST
-#fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "lu" ]; then
+ echo "$ADIR/npb/bin/lu.mips64 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "mg" ]; then
+ echo "$ADIR/npb/bin/mg.mips64 $NUMCORE" >> $APPLIST
+fi
+if [ "$ARG2" = "all" ] || [ "$ARG2" = "npb" ] || [ "$ARG2" = "sp" ]; then
+ echo "$ADIR/npb/bin/sp.mips64 $NUMCORE" >> $APPLIST
+fi
 
 
 ## SPLASH-2 Benchmarks
