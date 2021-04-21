@@ -2614,7 +2614,7 @@ DDRx::DDRx(MemorySystem* current, const char *section, const char *name)
   //, tracFootPrint("%s:tracFootPrint", name)
 
   , avgAccessTime("%s:avgAccessTime", name)
-  , tracAccessTime("%s:tracAccessTime", name)
+  //, tracAccessTime("%s:tracAccessTime", name)
 {
   MemObj *lower_level = NULL;
 
