@@ -399,7 +399,7 @@ public:
 
     void insert(uint64_t signature, float confidence, int delta, int last_offset) {
         if (this->debug) {
-            cerr << "[GHR] insert signature=" << bitset<12>(signature).to_string() << ", confidence=" << confidence
+            cerr << "[GHR] insert signature=" << bitset<24>(signature).to_string() << ", confidence=" << confidence
                  << ", delta=" << delta << ", last_offset=" << last_offset << endl;
         }
         q.push_front({signature, confidence, delta, last_offset});
@@ -432,7 +432,7 @@ public:
         assert(__builtin_popcount(blocks_in_page) == 1);
         int delta_width = __builtin_ctz(blocks_in_page) + 1;
         delta = set_width(delta, delta_width);
-        signature = bitset<12>((signature << 3) ^ delta).to_ulong();
+        signature = bitset<24>((signature << 3) ^ delta).to_ulong();
         return signature;
     }
 
@@ -486,7 +486,7 @@ private:
     static void write_data(Entry &entry, Table &table, int row) {
         table.set_cell(row, 0, entry.key);
         table.set_cell(row, 1, entry.data.last_offset);
-        table.set_cell(row, 2, bitset<12>(entry.data.signature).to_string());
+        table.set_cell(row, 2, bitset<24>(entry.data.signature).to_string());
     }
 
     int blocks_in_page;
@@ -494,8 +494,8 @@ private:
 
 class PatternTableData {
 public:
-    int delta[4];
-    uint64_t c_delta[4];
+    int delta[63];
+    uint64_t c_delta[63];
     uint64_t c_sig;
 };
 
@@ -510,14 +510,14 @@ public:
 
     void update(uint64_t signature, int delta) {
         if (this->debug) {
-            cerr << "[PT] updating signature=" << bitset<12>(signature).to_string() << ", delta=" << delta << endl;
+            cerr << "[PT] updating signature=" << bitset<24>(signature).to_string() << ", delta=" << delta << endl;
         }
         assert(delta != 0);
         Entry *entry = this->find(signature);
         if (entry) {
             PatternTableData &data = entry->data;
             int update_index = 0;
-            for (int i = 0; i < 4; i += 1) {
+            for (int i = 0; i < 63; i += 1) {
                 if (data.delta[i] == delta) {
                     update_index = i;
                     break;
@@ -539,17 +539,17 @@ public:
      */
     vector<pair<int, float> > get_prefetch_candidates(uint64_t signature, float path_confidence) {
         if (this->debug) {
-            cerr << "[PT] finding prefetch candidates for signature=" << bitset<12>(signature).to_string()
+            cerr << "[PT] finding prefetch candidates for signature=" << bitset<24>(signature).to_string()
                  << " and path_confidence=" << path_confidence << endl;
         }
-        assert(bitset<12>(signature).to_ullong() == signature);
+        assert(bitset<24>(signature).to_ullong() == signature);
         assert(0.0 <= path_confidence && path_confidence <= 1.0);
         vector<pair<int, float> > result;
         Entry *entry = this->find(signature);
         if (!entry)
             return result;
         PatternTableData &data = entry->data;
-        for (int i = 0; i < 4; i += 1) {
+        for (int i = 0; i < 63; i += 1) {
             /* skip if invalid */
             if (data.delta[i] == 0)
                 continue;
@@ -569,8 +569,8 @@ public:
 
 private:
     static void write_data(Entry &entry, Table &table, int row) {
-        table.set_cell(row, 0, bitset<12>(entry.key).to_string());
-        for (int i = 0; i < 4; i += 1) {
+        table.set_cell(row, 0, bitset<24>(entry.key).to_string());
+        for (int i = 0; i < 63; i += 1) {
             table.set_cell(row, 2 * i + 1, entry.data.delta[i]);
             table.set_cell(row, 2 * i + 2, entry.data.c_delta[i]);
         }
@@ -581,7 +581,7 @@ private:
         /* If either Cdelta or Csig saturates, all counters associated with that signature are right shifted by 1. */
         if (data.c_sig == 15) {
             data.c_sig >>= 1;
-            for (int i = 0; i < 4; i += 1)
+            for (int i = 0; i < 63; i += 1)
                 data.c_delta[i] >>= 1;
         }
     }
@@ -653,7 +653,7 @@ public:
                 cerr << "[SPP] depth=" << depth << endl;
                 cerr << "[SPP] current_offset=" << current_offset << endl;
                 cerr << "[SPP] path_confidence=" << path_confidence << endl;
-                cerr << "[SPP] signature=" << bitset<12>(signature).to_string() << endl;
+                cerr << "[SPP] signature=" << bitset<24>(signature).to_string() << endl;
             }
             /* vector of <delta, prob> pairs */
             vector<pair<int, float> > prefetch_candidates = this->pattern_table.get_prefetch_candidates(signature, path_confidence);
@@ -758,10 +758,10 @@ private:
 };
 
 /* SPP settings */
-const int PT_SIZE = 512;
-const int ST_SIZE = 256;
-const int PF_SIZE = 1024;
-const int GHR_SIZE = 8;
+const int PT_SIZE = 512*1024;
+const int ST_SIZE = 256*1024;
+const int PF_SIZE = 1024*1024;
+const int GHR_SIZE = 8*1024;
 const float PREFETCH_THRESH = 0.25;
 const int NUM_CPUS = 1; // FIXME: If multi-core
 const int LOG2_BLOCK_SIZE = 6;  // from ChampSim.h, assumes 64B cache blocks

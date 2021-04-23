@@ -137,7 +137,7 @@ public:
             TagType tag;
             tag.valid = false;
             tag.dirty = false;
-            tag.prefetch = false; // fromHunter for Miss Coverage
+            tag.prefetch = true; // fromHunter for Miss Coverage
             tag.value = 0;
             set.push_back(tag);
         }
