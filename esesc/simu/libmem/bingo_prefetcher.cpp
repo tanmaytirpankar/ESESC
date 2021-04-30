@@ -460,7 +460,7 @@ template <class T> vector<T> my_rotate(const vector<T> &x, int n) {
 }
 
 #define THRESH 0.20
-#define USE_ONLY_PC_ADDR 0   // 0 = false, 1 = true, only use PC+Address
+#define USE_ONLY_PC_ADDR 1   // 0 = false, 1 = true, only use PC+Address
 
 class PatternHistoryTableData {
   public:
