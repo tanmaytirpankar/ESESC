@@ -937,10 +937,11 @@ class WideIO: public MemObj {
 protected:
 
   //uint addrMapping; 
-  bool do_prefetching = true; // fromHunter
+  bool do_prefetching = true; // fromHunter - this turns on/off all prefetching
+  int prefetch_degree = 4;     // fromHunter - how many prefetch requests max can be sent at a time
 
-  bool prefetch_all_reqs = false;    // fromHunter
-  bool prefetch_only_misses = false; // fromHunter
+  bool prefetch_all_reqs = false;    // fromHunter  -  prefetch with stride 64 on each request
+  bool prefetch_only_misses = false; // fromHunter  -  prefetch with stride 64 on each miss
 
   bool prefetch_with_bingo = true;   // fromHunter
   bool bingo_prefetch_only_misses = true; //fromHunter  // BINGO has its own method of deciding when to prefetch or not, but I'm seeing better results
@@ -948,7 +949,7 @@ protected:
 
   bool prefetch_with_bop = false;  //fromHunter    // Note you also need to uncomment to include 'bop.cpp'
 
-  bool init_done = false;     // fromHunter
+  bool init_done = false;     // fromHunter - this will be updated by prefetching code, always leave false here
   uint dispatch;
   uint num_total_requests;
   uint num_cycles;
@@ -1066,6 +1067,7 @@ public:
   void disp(MemRequest *mreq)        { doDisp(mreq); }
 
   // These do the real work
+  WideIOReference* startNewPrefetch(AddrType maddr_of_prefetch);  // fromHunter
   void doReq(MemRequest *mreq);
   void doReqAck(MemRequest *mreq);
   void doSetState(MemRequest *mreq);

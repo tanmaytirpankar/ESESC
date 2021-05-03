@@ -1,9 +1,3 @@
-/////////////////////////////////////////////////////////////////////
-// Source code from:
-// https://github.com/bakhshalipour/Bingo/blob/master/prefetcher/bingo_16k.llc_pref
-// Modified by Hunter to compile in non c++11
-/////////////////////////////////////////////////////////////////////
-
 #include <vector>
 #include <string>
 #include <iostream>
@@ -13,100 +7,6 @@
 
 using namespace std;
 
-class Table {
-  public:
-    Table(int width, int height) : width(width), height(height), cells(height, vector<string>(width)) {}
-
-    void set_row(int row, const vector<string> &data, int start_col = 0) {
-        assert(data.size() + start_col == this->width);
-        for (unsigned col = start_col; col < this->width; col += 1)
-            this->set_cell(row, col, data[col]);
-    }
-
-    void set_col(int col, const vector<string> &data, int start_row = 0) {
-        assert(data.size() + start_row == this->height);
-        for (unsigned row = start_row; row < this->height; row += 1)
-            this->set_cell(row, col, data[row]);
-    }
-
-    void set_cell(int row, int col, string data) {
-        assert(0 <= row && row < (int)this->height);
-        assert(0 <= col && col < (int)this->width);
-        this->cells[row][col] = data;
-    }
-
-    void set_cell(int row, int col, double data) {
-        this->oss.str("");
-        this->oss << setw(11) << fixed << setprecision(8) << data;
-        this->set_cell(row, col, this->oss.str());
-    }
-
-    void set_cell(int row, int col, int64_t data) {
-        this->oss.str("");
-        this->oss << setw(11) << std::left << data;
-        this->set_cell(row, col, this->oss.str());
-    }
-
-    void set_cell(int row, int col, int data) { this->set_cell(row, col, (int64_t)data); }
-
-    void set_cell(int row, int col, uint64_t data) { this->set_cell(row, col, (int64_t)data); }
-
-    string to_string() {
-        vector<int> widths;
-        for (unsigned i = 0; i < this->width; i += 1) {
-            int max_width = 0;
-            for (unsigned j = 0; j < this->height; j += 1)
-                max_width = max(max_width, (int)this->cells[j][i].size());
-            widths.push_back(max_width + 2);
-        }
-        string out;
-        out += Table::top_line(widths);
-        out += this->data_row(0, widths);
-        for (unsigned i = 1; i < this->height; i += 1) {
-            out += Table::mid_line(widths);
-            out += this->data_row(i, widths);
-        }
-        out += Table::bot_line(widths);
-        return out;
-    }
-
-    string data_row(int row, const vector<int> &widths) {
-        string out;
-        for (unsigned i = 0; i < this->width; i += 1) {
-            string data = this->cells[row][i];
-            data.resize(widths[i] - 2, ' ');
-            out += " | " + data;
-        }
-        out += " |\n";
-        return out;
-    }
-
-    static string top_line(const vector<int> &widths) { return Table::line(widths, "┌", "┬", "┐"); }
-
-    static string mid_line(const vector<int> &widths) { return Table::line(widths, "├", "┼", "┤"); }
-
-    static string bot_line(const vector<int> &widths) { return Table::line(widths, "└", "┴", "┘"); }
-
-    static string line(const vector<int> &widths, string left, string mid, string right) {
-        string out = " " + left;
-        for (unsigned i = 0; i < widths.size(); i += 1) {
-            int w = widths[i];
-            for (int j = 0; j < w; j += 1)
-                out += "─";
-            if (i != widths.size() - 1)
-                out += mid;
-            else
-                out += right;
-        }
-        return out + "\n";
-    }
-
-  private:
-    unsigned width;
-    unsigned height;
-    vector<vector<string> > cells;
-    ostringstream oss;
-};
 
 template <class T> class InfiniteCache {
   public:
@@ -428,12 +328,25 @@ class AccumulationTable : public LRUFullyAssociativeCache<AccumulationTableData>
     /**
      * @return A return value of false means that the tag wasn't found in the table and true means success.
      */
-    bool set_pattern(uint64_t region_number, int offset) {
+    bool set_pattern(uint64_t region_number, int offset, bool print_out) {
         Entry *entry = Super::find(region_number);
-        if (!entry)
+        if (!entry) 
             return false;
         entry->data.pattern[offset] = true;
         this->set_mru(region_number);
+        if (print_out) {
+        	uint64_t pc = entry->data.pc;				/* use [pc_width] bits from pc */
+        	uint64_t address = entry->key * 32 + entry->data.offset;	// Base address of the region
+        	uint64_t offset = entry->data.offset;
+        	printf("Found in accum table, pc: %lx, key: %lx, addr: %lx, offset: %d, pattern: ", pc, entry->key, address, offset);
+        	for (int i = 0; i < 32; i++) {
+        		if (entry->data.pattern[i] == false)
+        			printf("0");
+        		else
+        			printf("1");
+        	}
+        	printf(".\n");
+        }
         return true;
     }
 
@@ -460,7 +373,7 @@ template <class T> vector<T> my_rotate(const vector<T> &x, int n) {
 }
 
 #define THRESH 0.20
-#define USE_ONLY_PC_ADDR 0   // 0 = false, 1 = true, only use PC+Address
+#define USE_ONLY_PC_ADDR 1   // 0 = false, 1 = true, only use PC+Address
 
 class PatternHistoryTableData {
   public:
@@ -573,13 +486,46 @@ class PatternHistoryTable : LRUSetAssociativeCache<PatternHistoryTableData> {
     int min_addr_width, max_addr_width, pc_width;
 };
 
+
+class Table_Entry {
+  	public:
+  		Table_Entry(int pattern_len) {
+  			valid = false;
+  			pc = 0;
+  			address = 0;
+  			lru = 0;
+  			for (int i=0; i < pattern_len; i++) {
+  			    pattern.push_back(false);
+  			    confidences.push_back(0);
+  			}
+  		}
+  		bool valid;
+  		int lru;
+  		uint64_t pc;
+	    uint64_t address;
+	    vector<bool> pattern;
+	    vector<int> confidences;
+};
+
+
 class Bingo {
   public:
-    Bingo(int pattern_len, int min_addr_width, int max_addr_width, int pc_width, int pattern_history_table_size,
-        int filter_table_size, int accumulation_table_size)
-        : pattern_len(pattern_len), filter_table(filter_table_size),
-          accumulation_table(accumulation_table_size, pattern_len),
-          pht(pattern_history_table_size, pattern_len, min_addr_width, max_addr_width, pc_width) {}
+    Bingo(int pattern_len, int min_addr_width, int max_addr_width, int pc_width, int history_table_rows,
+        int history_table_columns, int filter_table_size, int accumulation_table_size)
+        : pattern_len(pattern_len), min_addr_width(min_addr_width), max_addr_width(max_addr_width), pc_width(pc_width),
+          history_table_rows(history_table_rows), history_table_columns(history_table_columns), filter_table(filter_table_size), 
+          accumulation_table(accumulation_table_size, pattern_len) 
+        {
+        	// Initialize the history table:
+          	for (int i=0; i < history_table_rows; i++) {
+		        vector<Table_Entry*> row;
+		        for (int j=0; j < history_table_columns; j++) {
+		            Table_Entry* entry = new Table_Entry(pattern_len);
+		            row.push_back(entry);
+		        }
+		        table.push_back(row);
+		    }
+        }
 
     /**
      * @return A vector of block numbers that should be prefetched.
@@ -590,7 +536,13 @@ class Bingo {
         }
         uint64_t region_number = block_number / this->pattern_len;
         int region_offset = block_number % this->pattern_len;
-        bool success = this->accumulation_table.set_pattern(region_number, region_offset);
+
+        bool print_out = false;
+  		// if ((block_number >= 0x20740) && (block_number < 0x20760) && (pc == 0x120005528)) {
+		// 	printf("Request for block: %lx in region %d with offset %d\t pc: %lx\n", block_number, region_number, region_offset, pc);
+		// 	print_out = true;
+		// }
+        bool success = this->accumulation_table.set_pattern(region_number, region_offset, print_out);
         if (success) {
             // printf("Pushed to accumulation_table, block: %x is in region %x with offset %x\n", block_number, region_number, region_offset);
             return vector<uint64_t>();
@@ -600,7 +552,8 @@ class Bingo {
             /* trigger access */
             // printf("Trigger access on block number: %x in region %x with offset %x\n", block_number, region_number, region_offset);
             this->filter_table.insert(region_number, pc, region_offset);
-            vector<bool> pattern = this->find_in_phts(pc, block_number);
+            // FIXME // vector<bool> pattern = this->find_in_phts(pc, block_number);
+            vector<bool> pattern = find_in_hist_table(pc, block_number, false);
             if (pattern.empty())
                 return vector<uint64_t>();
             vector<uint64_t> to_prefetch;
@@ -613,11 +566,13 @@ class Bingo {
             /* move from filter table to accumulation table */
             // printf("Moving from filter to accum, block: %x is in region %x with offset %x\n", block_number, region_number, region_offset);
             AccumulationTable::Entry victim = this->accumulation_table.insert(*entry);
-            this->accumulation_table.set_pattern(region_number, region_offset);
+            this->accumulation_table.set_pattern(region_number, region_offset, false);
             this->filter_table.erase(region_number);
             if (victim.valid) {
                 /* move from accumulation table to pattern history table */
-                this->insert_in_phts(victim);
+                // FIXME // this->insert_in_phts(victim);
+                //printf("MOVING %lx block into PHTS because it's overwritten\n", block_number);
+                insert_in_hist_table(victim, false);
             }
         }
         return vector<uint64_t>();
@@ -633,72 +588,230 @@ class Bingo {
         AccumulationTable::Entry *entry = this->accumulation_table.erase(region_number);
         if (entry) {
             /* move from accumulation table to pattern history table */
-            this->insert_in_phts(*entry);
+            // FIXME // this->insert_in_phts(*entry);
+            //uint64_t address = entry->key * this->pattern_len + entry->data.offset;
+            //printf("MOVING %lx block of addr %lx into PHTS because page residency over\n", block_number, address);
+            insert_in_hist_table(*entry, false);
         }
     }
 
-    void set_debug_level(int debug_level) { this->debug_level = debug_level; }
+  //   void set_debug_level(int debug_level) { this->debug_level = debug_level; }
 
   private:
-    vector<bool> find_in_phts(uint64_t pc, uint64_t address) {
-        if (this->debug_level >= 1) {
-            cerr << "[Bingo] find_in_phts(pc=" << pc << ", address=" << address << ")" << endl;
-        }
-        return this->pht.find(pc, address);
-    }
+  	vector<bool> find_in_hist_table(uint64_t pc, uint64_t address, bool print_out) {
+  		pc &= (1 << pc_width) - 1;			/* use [pc_width] bits from pc */
+  		address &= (1 << max_addr_width) - 1; /* use [addr_width] bits from address */
+  		int offset = address & ((1 << min_addr_width) - 1);
+  		int set = ((pc << min_addr_width) | offset) % history_table_rows;
 
-    void insert_in_phts(const AccumulationTable::Entry &entry) {
-        if (this->debug_level >= 1) {
-            cerr << "[Bingo] insert_in_phts(...)" << endl;
-        }
-        uint64_t pc = entry.data.pc;
-        uint64_t address = entry.key * this->pattern_len + entry.data.offset;
+  		int num_matches = 0;
+  		int found_idx = -1;
+  		vector<bool> pat(pattern_len, false);
+  		vector<int> conf(pattern_len, 0);
+  		for (int j = 0; j < history_table_columns; j++) {
+  			if (table[set][j]->valid == true) {
+  				if (table[set][j]->address == address) {
+  					if (print_out) {
+	  					printf("%lx == %lx and %lx == %lx, returning pattern: ", table[set][j]->pc, pc, table[set][j]->address, address);
+	  					print_pattern(set, j);
+	  				}
+  					//return table[set][j]->pattern;
+  					pat = table[set][j]->pattern;
+  					conf = table[set][j]->confidences;
+  					num_matches++;
+  				}
+  			}
+  		}
+  		if (num_matches > 1) 
+  			printf("For pc: %lx, Addr: %lx, there were: %d matches.\n", pc, address, num_matches);
+
+  		vector<bool> ret(pattern_len, false);
+  		for (int i=0; i < pattern_len; i++) {
+  			if (conf[i] > 0){	// TODO: Insert criteria here!
+  				ret[i] = true;
+  			}
+  		}
+  		return ret;	// Return empty vector if not found
+  	}
+
+  	int find_idx_in_hist_table(int set, uint64_t address){
+  		for (int j = 0; j < history_table_columns; j++) {
+  			if (table[set][j]->valid == true) {
+  				if (table[set][j]->address == address) {
+  					return j;
+  				}
+  			}
+  		}
+  		return -1;
+  	}
+
+  	void insert_in_hist_table(const AccumulationTable::Entry &entry, bool print_out) {
+  		uint64_t pc = entry.data.pc;				
+        uint64_t address = entry.key * pattern_len + entry.data.offset;	// Block Address (key is region number)
+        pc &= (1 << pc_width) - 1;				/* use [pc_width] bits from pc */
+        address &= (1 << max_addr_width) - 1; 	/* use [addr_width] bits from address */
+        int offset = address & ((1 << min_addr_width) - 1);
+        int set = ((pc << min_addr_width) | offset) % history_table_rows;
+
         const vector<bool> &pattern = entry.data.pattern;
-        this->pht.insert(pc, address, pattern);
-    }
+
+        // if ((address >= 0x20740) && (address < 0x20760) && (pc == 0x5528)) {
+        // 	print_out = true;
+        // }
+
+        int found_idx = find_idx_in_hist_table(set, address);
+        if (found_idx == -1) {
+	        int victim_idx = hist_table_get_lru(set);
+	        table[set][victim_idx]->valid = true;
+	        do_lru(set, victim_idx);
+	        table[set][victim_idx]->pc = pc;
+	        table[set][victim_idx]->address = address;
+	        table[set][victim_idx]->pattern = pattern;
+	        for (int i=0; i < pattern_len; i++) {
+			    table[set][victim_idx]->confidences[i] = 0;
+			}
+			if (print_out) {
+				printf("PC: %lx Addr: %lx stored in set %d idx %d with pattern: ", pc, address, set, victim_idx);
+				print_pattern(set, victim_idx);
+			}
+		} else {
+			if (print_out) {
+				printf("Pattern before: ");
+				print_pattern(set, found_idx);
+				printf("Confdnc before: ");
+				for (int i=0; i < pattern_len; i++) {
+				    printf("%d", table[set][found_idx]->confidences[i]);
+				}
+				printf(".\n");
+				printf("New pattern:    ");
+				for (int i=0; i < pattern_len; i++) {
+					if (pattern[i] == false)
+				    	printf("0");
+				    else
+				    	printf("1");
+				}
+				printf(".\n");
+			}
+			// If the entry already exists, compare patterns to build up confidence
+			vector<bool> old_pattern = table[set][found_idx]->pattern;
+			for (int i=0; i < pattern_len; i++) {
+				if (pattern[i] && old_pattern[i]) {
+					table[set][found_idx]->confidences[i]++;	// Increase confidence
+				} 
+				else if (pattern[i] && !old_pattern[i]) {
+					table[set][found_idx]->pattern[i] = 1;	// Confidence will be default to 0
+				}
+				else if (!pattern[i] && old_pattern[i]) {
+					if (table[set][found_idx]->confidences[i] > 0)
+						table[set][found_idx]->confidences[i]--;	// If confidence >0, decrement it
+				}
+			}
+			if (print_out) {
+				printf("Pattern after:  ");
+				print_pattern(set, found_idx);
+				printf("Confdnc after:  ");
+				for (int i=0; i < pattern_len; i++) {
+				    printf("%d", table[set][found_idx]->confidences[i]);
+				}
+				printf(".\n");
+				printf("***************\n");
+			}
+		}
+  	}
+
+  	int hist_table_get_lru(int set) {
+  		int min = 9999;
+  		int idx = -1;
+  		for (int j = 0; j < history_table_columns; j++) {
+  			if (table[set][j]->valid == false) {
+  				idx = j;	// If not valid, that's the lru, break early
+  				break;
+  			} else {
+  				if (table[set][j]->lru < min) {
+  					min = table[set][j]->lru;
+  					idx = j;
+  				}
+  			}
+  		}
+  		if (idx != -1) {
+  			return idx;
+  		} else {
+  			printf("ERROR: Minimum index for LRU not found, %d %d", min, idx);
+  			exit(1);
+  		}
+  	}
+
+  	void do_lru(int set, int idx) {
+  		table[set][idx]->lru = history_table_columns;	// i.e. 16
+  		for (int j = 0; j < history_table_columns; j++) {
+  			table[set][j]->lru--;	// All get decremented
+  		}
+  	}
+
+  	void print_pattern(int set, int idx) {
+		for (int i=0; i < pattern_len; i++) {
+		    if (table[set][idx]->pattern[i] == false)
+		    	printf("0");
+		    else
+		    	printf("1");
+		}
+		printf(".\n");
+  	}
+  //   vector<bool> find_in_phts(uint64_t pc, uint64_t address) {
+  //       if (this->debug_level >= 1) {
+  //           cerr << "[Bingo] find_in_phts(pc=" << pc << ", address=" << address << ")" << endl;
+  //       }
+  //       return this->pht.find(pc, address);
+  //   }
+
+  //   void insert_in_phts(const AccumulationTable::Entry &entry) {
+  //       if (this->debug_level >= 1) {
+  //           cerr << "[Bingo] insert_in_phts(...)" << endl;
+  //       }
+  //       uint64_t pc = entry.data.pc;
+  //       uint64_t address = entry.key * this->pattern_len + entry.data.offset;
+  //       const vector<bool> &pattern = entry.data.pattern;
+  //       this->pht.insert(pc, address, pattern);
+  //   }
 
     int pattern_len;
+    int min_addr_width;
+    int max_addr_width;
+    int pc_width;
+    int history_table_rows;
+    int history_table_columns;
     FilterTable filter_table;
     AccumulationTable accumulation_table;
-    PatternHistoryTable pht;
+    vector<vector<Table_Entry*> > table;
     int debug_level = 0;
 };
 
-/* Bingo settings */
+
 const int REGION_SIZE = 2 * 1024;
-const int MIN_ADDR_WIDTH = 5;
-const int MAX_ADDR_WIDTH = 16;
-const int PC_WIDTH = 16;
-const int PHT_SIZE = 16 * 1024;
+const int LOG2_BLOCK_SIZE = 6;  // Assumes 64B cache block
+const int PATTERN_LEN = REGION_SIZE >> LOG2_BLOCK_SIZE;		// 2048>>6 = 32
+const int MIN_ADDR_WIDTH = 5;	// Basically log2(pattern_len)
+const int MAX_ADDR_WIDTH = 16;	// Basically only use lower 16 bits of address
+const int NUM_SETS = 1024;	// Make 1024?
+const int NUM_ROWS = 16;		// Make 16?
+const int PC_WIDTH = 16;	// Only use 16 bits
 const int FT_SIZE = 64;
 const int AT_SIZE = 128;
 const int NUM_CPUS = 1; // FIXME: If multi-core
-const int LOG2_BLOCK_SIZE = 6;  // from ChampSim.h, assumes 64B cache block
 
 vector<Bingo> prefetchers;
 
 void dram_prefetcher_initialize_(uint32_t cpu) {
-    if (cpu != 0)
-        return;
-
-    /* create prefetcher for all cores */
-    assert(PAGE_SIZE % REGION_SIZE == 0);
-    prefetchers = vector<Bingo>(NUM_CPUS, Bingo(REGION_SIZE >> LOG2_BLOCK_SIZE, MIN_ADDR_WIDTH, MAX_ADDR_WIDTH,
-        PC_WIDTH, PHT_SIZE, FT_SIZE, AT_SIZE));
+	prefetchers = vector<Bingo>(NUM_CPUS, Bingo(PATTERN_LEN, MIN_ADDR_WIDTH, MAX_ADDR_WIDTH, PC_WIDTH, NUM_SETS, NUM_ROWS, FT_SIZE, AT_SIZE));
 }
 
 vector<uint64_t> dram_prefetcher_operate_(uint32_t cpu, uint64_t addr, uint64_t ip, uint8_t cache_hit, uint8_t type) {
-    /* call prefetcher and send prefetches */
-    uint64_t block_number = addr >> LOG2_BLOCK_SIZE;
+	uint64_t block_number = addr >> LOG2_BLOCK_SIZE;
     vector<uint64_t> to_prefetch = prefetchers[cpu].access(block_number, ip);
     for (int i = 0; i < to_prefetch.size(); i++) {
         to_prefetch[i] = to_prefetch[i] << LOG2_BLOCK_SIZE; // Convert back to addresses
     }
     return to_prefetch;
-    // for (auto &pf_block_number : to_prefetch) {
-    //     uint64_t pf_address = pf_block_number << LOG2_BLOCK_SIZE;
-    //     prefetch_line(cpu, ip, addr, pf_address, FILL_LLC);
-    // }
 }
 
 void dram_prefetcher_cache_fill_(uint32_t cpu, uint64_t addr, uint32_t set, uint32_t way, uint8_t prefetch, uint64_t evicted_addr) {
@@ -706,11 +819,3 @@ void dram_prefetcher_cache_fill_(uint32_t cpu, uint64_t addr, uint32_t set, uint
     for (int i = 0; i < NUM_CPUS; i += 1)
         prefetchers[i].eviction(evicted_addr >> LOG2_BLOCK_SIZE);
 }
-
-// void CACHE::llc_prefetcher_inform_warmup_complete_() {}
-
-// void CACHE::llc_prefetcher_inform_roi_complete_(uint32_t cpu) {}
-
-// void CACHE::llc_prefetcher_roi_stats_(uint32_t cpu) {}
-
-// void CACHE::llc_prefetcher_final_stats_(uint32_t cpu) {}
