@@ -41,10 +41,10 @@
 #include "stdlib.h"
 //#include <queue>
 //#include <cmath>
-#include "bingo_prefetcher.cpp" // fromHunter
+//#include "bingo_prefetcher.cpp" // fromHunter
 //#include "bingo_multitable.cpp"   // fromHunter
 //#include "bop.cpp"
-//#include "new_prefetcher.cpp"
+#include "new_prefetcher.cpp"
 
 
 // WideIO clock, scaled wrt globalClock
